@@ -1,5 +1,6 @@
 // $bgColor: linear-gradient(270deg, #375991, rgb(35, 45, 75));
-$bgColor: linear-gradient(270deg, rgb(0, 0, 0), rgb(30, 30, 30));
+// $bgColor: linear-gradient(270deg, rgb(15, 15, 15), rgb(45, 45, 45));
+$bgColor: linear-gradient(270deg, rgb(0, 0, 0), rgb(15, 15, 15));
 $borderMain: 1px solid rgba(255, 255, 255, 0.15);
 $borderMain_hover: 1px solid rgba(255, 255, 255, 0.4);
 $shadowMain: 0 5px 30px -5px rgba(0, 0, 0, 0);
@@ -85,13 +86,9 @@ $italicFont: italic2;
     background: #000; /* Firefox */
 }
 
-
-.mainBlock {
-    padding-top: 50px;
-}
-
 body {
     background: $bgColor;
+    height: 100vh;
 }
 body::-webkit-scrollbar {
     display: none;
@@ -139,16 +136,20 @@ body::-webkit-scrollbar {
 
 header {
     // box-shadow: $shadowMain;
-    height: 70px;
-    left: 0;
-    right: 0;
-    top: 0;
+    // height: 70px;
+    width: 300px;
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
+    background-color: rgba(35, 35, 35, .3);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgb(45, 45, 45);
+    border-radius: 20px;
     position: fixed;
     z-index: 100;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
 
     transition: $mainTransition;
 
@@ -166,17 +167,27 @@ header {
         opacity: 0;
         transition: $mainTransition;
     }
+
     .navs {
         position: relative;
         z-index: 10;
         display: flex;
-        margin-left: 20px;
-        margin-right: 20px;
-        gap: 20px;
+        flex-direction: column;
+        gap: 5px;
+        padding: {
+            left: 10px;
+            right: 10px;
+        };
+        margin-top: 20px;
         &__nav {
-            font-size: 62px;
-            font-family: $mainFont;
+            font-size: 32px;
+            font-family: italic2;
             color: rgba(255, 255, 255, 0.6);
+            padding: 10px;
+            // background-color: rgba(255, 255, 255, 0.01);
+            background-color: rgba(15, 15, 15, 0.6); 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
             transition: $mainTransition;
             cursor: pointer;
             &_active {
@@ -188,23 +199,17 @@ header {
         }
     }
     .mini_musicPlayer {
-        position: absolute;
-        top: 5px;
-        left: 5px;
         display: flex;
         align-items: center;
+        flex-direction: column;
         z-index: 99;
-
-        transition: $mainTransition;
-        transform: translateX(-23px);
-        &:hover {
-            transform: translateX(-5px);
-        }
+        padding-top: 30px;
         &__volumeRangeBlock {
+            display: none;
             transform: rotate(-90deg);
             width: 20px;
             height: 10px;
-            display: flex;
+            // display: flex;
             justify-content: center;
             align-items: end;
             margin-right: 2px;
@@ -230,14 +235,14 @@ header {
             }
         }
         &__imgBlock {
-            width: 60px;
-            height: 60px;
-            margin-right: 10px;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 15px;
             cursor: pointer;
             animation: mini_musicPlayer_img .4s ease-out 1;
             & img {
                 width: 100%;
-                border-radius: 5px;
+                border-radius: 15px;
                 transition: $mainTransition;
             }
             &:hover img{
@@ -252,22 +257,24 @@ header {
             transform: translateY(-1px);
             animation: mini_musicPlayer_text .4s ease-out 1;
             &__trackname {
-                font-size: 20px;
+                font-size: 22px;
                 color: rgb(255, 255, 255);
                 font-family: $italicFont;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 max-width: 400px;
+                text-align: center;
                 & > span {
                     color: rgb(200, 200, 200);
                     font-size: 16px;
                 }
             }
             &__author {
-                font-size: 18px;
+                font-size: 20px;
                 color: rgb(230, 230, 230);
                 font-family: $italicFont;
+                text-align: center;
                 cursor: pointer;
                     transition: $mainTransition;
                     &:hover {
@@ -279,9 +286,35 @@ header {
 }
 
 .mainBlock {
-    position: relative;
+    position: fixed;
     z-index: 5;
-    margin-top: 70px;
+    top: 20px;
+    right: 20px;
+    left: 340px;
+    bottom: 20px;
+    background-color: rgba(35, 35, 35, .3);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(45, 45, 45, 1);
+    border-radius: 20px;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    padding: {
+        top: 50px;
+        bottom: 50px;
+    };
+    & > div {
+        width: 1100px;
+    }
+    &_hideBG {
+        background-color: rgba(35, 35, 35, 0);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0);
+        border: 1px solid rgba(45, 45, 45, 0);
+    }
+}
+
+.mainBlock::-webkit-scrollbar {
+    display: none;
 }
 
 .container {
@@ -289,7 +322,7 @@ header {
     grid-gap: 30px;
     grid-template-columns: repeat(6, minmax(0px, 1fr));
     animation: 0.5s cubic-bezier(0, 0, 0.1, 1) 1 openSitesContent;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
     &__site {
         position: relative;
         z-index: 2;
@@ -376,6 +409,7 @@ header {
 }
 
 .playLists {
+    display: none;
     // background-color: rgba(0, 0, 0, 0.2); --
     // backdrop-filter: blur(30px); --
     // border: $borderMain;

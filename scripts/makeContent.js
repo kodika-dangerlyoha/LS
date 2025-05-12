@@ -2,9 +2,9 @@ gameList.forEach(site => {
     addGame(site);
 })
 
-playlists.forEach(playlist => {
-    addPlaylists(playlist);
-})
+// playlists.forEach(playlist => {
+//     addPlaylists(playlist);
+// })
 
 audios.forEach(audio => {
     addAudio(audio);
