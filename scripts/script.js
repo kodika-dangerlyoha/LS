@@ -32,7 +32,6 @@ function openMusicPlayer() {
     if (MPopen) {
         document.querySelector('#header').style.opacity = "1";
         document.querySelector('.bgAlbum').style.opacity = "0";
-        document.querySelector('.mainBlock').classList.remove('mainBlock_hideBG');
         document.getElementById('musicPlayer').style.display = "none";
         openPage(1, 'musicBox');
 
@@ -45,7 +44,6 @@ function openMusicPlayer() {
         document.querySelector('#header').style.opacity = "0";
         document.querySelector('.bgAlbum').style.opacity = "0.3";
         document.getElementById('musicPlayer').style.display = "flex";
-        document.querySelector('.mainBlock').classList.add('mainBlock_hideBG');
 
         MPopen = true;
         APopen = false;
@@ -82,8 +80,6 @@ function openMusic() {
     }
 }
 
-
-
 function openAuthor(authorName) {
     if (APopen) {
         document.getElementById('authorPlaylist').style.display = "none";
@@ -110,5 +106,58 @@ function openAuthor(authorName) {
         APopen = true;
     }
 }
+
+function copy_code() {
+    let value_for_copy = document.querySelector('#code').textContent;
+    let code_color = document.querySelector('#code_inf');
+    navigator.clipboard.writeText(value_for_copy)
+    .then(() => {
+        console.log('Скопировано', value_for_copy);
+        code_color.style.backgroundColor = "#23d981";
+        if (value_for_copy == undefined || value_for_copy == "undefined") {
+            code_color.style.backgroundColor = "rgb(255, 0, 0)";
+        } 
+        else {
+            update_audios_list();
+        }
+    })
+    .catch(error => {
+        console.error(`Текст не скопирован ${error}`);
+        code_color.style.backgroundColor = "rgb(255, 0, 0)";
+    })
+
+    code_color.style.display = "none";
+    setTimeout(function() {
+        code_color.style.display = "block";
+    }, 1)
+}
+
+function open_add_song() {
+    let add_song = document.querySelector('#add_song_global');
+    document.querySelector('#code_inf').style.backgroundColor = "rgba(255, 255, 255, 0)";
+    if (!document.querySelector('.addSong_open')) {
+        add_song.style.display = "flex";
+        setTimeout(function() {
+            add_song.classList.add('addSong_open');
+        }, 1)
+        document.body.style.overflow = "hidden";
+        return
+    }
+
+    add_song.classList.remove('addSong_open');
+    document.body.style.overflow = "auto";
+    setTimeout(function() {
+        add_song.style.display = "none";
+    }, 501)
+}
+
+setTimeout(function() {
+    document.querySelector('#forLoading').style.opacity = "0";
+}, 1000)
+
+setTimeout(function() {
+    document.querySelector('#forLoading').style.display = "none";
+}, 1600)
+
 
 openPage(0, 'containerGrid');

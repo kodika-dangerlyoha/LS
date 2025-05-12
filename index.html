@@ -9,23 +9,41 @@
 	<link rel="stylesheet" href="style\style.css">
 </head>
 <body>
+	<div class="forLoading" id="forLoading"></div>
 	<div class="bgAlbum">
 		<img src="img/audioImg/chainsaw.jpg" alt="" id="bgImgAlbum">
 	</div>
 
 	<header id="header">
-		<!-- <div class="header__bgBlur" id="headerbgBlur"></div> -->
+		<div class="header__bgBlur" id="headerbgBlur"></div>
 
 		<div id="innerMmp">
-			<!-- <div class="mini_musicPlayer">
-				<div class="mini_musicPlayer__imgBlock" onclick="openMusicPlayer()">
+			<div class="mini_musicPlayer" id="inner_mini_mp">
+				<!-- <div class="mini_musicPlayer__imgBlock" onclick="openMusicPlayer()">
 					<img src="img/audioImg/cristoforocolombo.png" alt="">
 				</div>
 				<div class="mini_musicPlayer__interface">
 					<div class="mini_musicPlayer__interface__trackname txt">rhgvrthbvtr</div>
 					<div class="mini_musicPlayer__interface__author txt">rthbrthbt</div>
-				</div>
-			</div> -->
+				</div> -->
+				<!-- <div class="mini_musicPlayer__interface">
+					<div class="mini_musicPlayer__interface__title">
+						<div class="mini_musicPlayer__interface__trackname txt">${audioInfo.name} <span>${audioInfo.add_name}</span> </div>
+						<div class="mini_musicPlayer__interface__author txt" onclick="openAuthor('${audioInfo.author}')">${audioInfo.author}</div>
+					</div>
+					<div class="mini_musicPlayer__interface__buttons">
+						<div class="musicPlayer__interface__button musicPlayer__interface__button_leftArr" onclick="changeAudio(-1, '${author}')">
+							<img src="img/icons/rArr.png" alt="">
+						</div>
+						<div class="musicPlayer__interface__button" onclick="playAudio(${num})">
+							<img src="img/icons/play.png" alt="" id="icoPlayAudio">
+						</div>
+						<div class="musicPlayer__interface__button musicPlayer__interface__button_rightArr" onclick="changeAudio(1, '${author}')">
+							<img src="img/icons/rArr.png" alt="">
+						</div>
+					</div>
+				</div> -->
+			</div>
 		</div>
 
 		<div class="navs">
@@ -34,86 +52,134 @@
 			<div class="navs__nav txt" onclick="openPage(2, 'chatsBox')">Chats</div>
 		</div>
 	</header>
+	<div class="addSong" id="add_song_global">
+		<div class="addSong__exit" onclick="open_add_song()">Exit</div>
+		<div class="addSong__inner">
+			<div class="addSong__inner__left">
+				<form action="" name="add_song">
+					<div class="form_part">
+						<label for="title_song">Title</label>
+						<input title="title_song" type="text" name="title_song" id="">
+					</div>
+					<div class="form_part">
+						<label for="author_song">Author</label>
+						<input title="author_song" type="text" name="author_song" id="">
+					</div>
+					<div class="form_part">
+						<label for="more_song">More</label>
+						<input title="more_song" type="text" name="more_song" id="">
+					</div>
+					<div class="form_part">
+						<label for="img_song">Image</label>
+						<input title="img_song" type="file" name="img_song" id="">
+					</div>
+					<div class="form_part">
+						<label for="audio_song">Audio</label>
+						<input title="audio_song" type="file" name="audio_song" id="">
+					</div>
+				</form>
+			</div>
+			<div class="addSong__inner__right">
+				<h3>Code</h3>
+				<div class="addSong__code">
+					<code id="code">
+						{
+						<br>'id': <span class="_green" id="s_id"></span>,
+						<br>'name':  <span class="_green" id="s_name">""</span>,
+						<br>'author':  <span class="_green" id="s_author">""</span>,
+						<br>'add_name':  <span class="_green" id="s_more">""</span>,
+						<br>'imgLink':  <span class="_green">"img/audioImg/<span id="s_img"></span>"</span>,
+						<!-- <br>'file':  <span class="_green" id="s_file">"audios/<span id="s_author_f"></span> - <span id="s_name_f"></span><span id="s_more_f"></span>.mp3"</span>, -->
+						<br>'file':  <span class="_green" id="s_file">"audios/<span id="s_audio"></span></span>"</span>,
+						<br>},
+					</code>
+					<button type="button" onclick="copy_code()">Copy</button>
+					<div class="addSong__code__inf" id="code_inf"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="cursorLight cursorLight_hidden" id="cursor_light"></div>
-	<div class="mainBlock">
-		<div>
-			<div class="container page" id="containerGrid">
-				<!-- <div class="container__site">
-					<img src="img/VK Logo.png" alt="">
-					<div class="container__site__nameSite txt">VK Music</div>
-					<div class="container__site__forHover"></div>
-				</div> -->
-			</div>
-			<div class="musicContainer page" id="musicBox">
-				<div class="playLists">
-					<h2 class="txt" onclick="openPlaylists()" id="h2_playlists">Playlists</h2>
-					<div class="playLists__grid" id="playLists__grid">
-					</div>
-				</div>
-				<div class="music">
-					<h2 class="txt" onclick="openMusicPlayer()" id="h2_music">Music</h2>
-					<div class="music__grid" id="music__grid">
-						<!-- <div class="music__grid__audioBlock">
-							<div class="music__grid__audioBlock__forClick" onclick="playAudio()"></div>
-							<img src="img/audioImg/chainsaw.jpg" alt="">
-							<div class="music__grid__audioBlock__info">
-								<div class="music__grid__audioBlock__info__name txt">CHAINSAW</div>
-								<div class="music__grid__audioBlock__info__author txt">9mice</div>
-							</div>
-						</div> -->
-					</div>
+	<div class="mainBlock flex-center">
+		<div class="container page" id="containerGrid">
+			<!-- <div class="container__site">
+				<img src="img/VK Logo.png" alt="">
+				<div class="container__site__nameSite txt">VK Music</div>
+				<div class="container__site__forHover"></div>
+			</div> -->
+		</div>
+		<div class="musicContainer page" id="musicBox">
+			<div class="playLists">
+				<h2 class="txt" onclick="openPlaylists()" id="h2_playlists">Playlists</h2>
+				<div class="playLists__grid" id="playLists__grid">
 				</div>
 			</div>
-			<div class="containerMP page" id="musicPlayer">
-				<!-- <div class="musicPlayer">
-					<img src="img/audioImg/chainsaw.jpg" alt="">
-					<div class="musicPlayer__bg">
-						<div class="musicPlayer__nameAudio txt">chaisaw</div>
-						<div class="musicPlayer__author txt">9mice</div>
-						<div class="musicPlayer__interface">
-							<div class="musicPlayer__interface__button musicPlayer__interface__button_leftArr" onclick="nextAudio(-1)">
-								<img src="img/icons/rArr.png" alt="">
-							</div>
-							<div class="musicPlayer__interface__button" onclick="playAudio(1)">
-								<img src="img/icons/play.png" alt="">
-							</div>
-							<div class="musicPlayer__interface__button rightArr" onclick="nextAudio(1)">
-								<img src="img/icons/rArr.png" alt="">
-							</div>
+			<div class="music">
+				<h2 class="txt" id="h2_music">Songs <button title="add_song" type="button" onclick="open_add_song()">Add song</button></h2>
+				<div class="music__grid" id="music__grid">
+					<!-- <div class="music__grid__audioBlock">
+						<div class="music__grid__audioBlock__forClick" onclick="playAudio()"></div>
+						<img src="img/audioImg/chainsaw.jpg" alt="">
+						<div class="music__grid__audioBlock__info">
+							<div class="music__grid__audioBlock__info__name txt">CHAINSAW</div>
+							<div class="music__grid__audioBlock__info__author txt">9mice</div>
 						</div>
-						<div class="rangeBox">
-							<input type="range" id="rangeTrack">
-						</div>
-					</div>
-				</div> -->
+					</div> -->
+				</div>
 			</div>
-			<div class="containerAP page" id="authorPlaylist">
-				<div class="authorPage">
-					<div class="authorPage__avatarBlock">
-						<img src="" alt="" id="authorImg">
+		</div>
+		<div class="containerMP page" id="musicPlayer">
+			<!-- <div class="musicPlayer">
+				<img src="img/audioImg/chainsaw.jpg" alt="">
+				<div class="musicPlayer__bg">
+					<div class="musicPlayer__nameAudio txt">chaisaw</div>
+					<div class="musicPlayer__author txt">9mice</div>
+					<div class="musicPlayer__interface">
+						<div class="musicPlayer__interface__button musicPlayer__interface__button_leftArr" onclick="nextAudio(-1)">
+							<img src="img/icons/rArr.png" alt="">
+						</div>
+						<div class="musicPlayer__interface__button" onclick="playAudio(1)">
+							<img src="img/icons/play.png" alt="">
+						</div>
+						<div class="musicPlayer__interface__button rightArr" onclick="nextAudio(1)">
+							<img src="img/icons/rArr.png" alt="">
+						</div>
 					</div>
-					<div class="authorPage__nameAuthor txt" id="authorName"></div>
-					<div class="authorPage__grid" id="AP_grid">
-						<!-- <div class="authorPage__grid__audio">
-							<img src="img/audioImg/clubbeztancev.jpg" alt="">
-							<div class="authorPage__grid__audio__forClick" onclick="playAudio()"></div>
-							<div class="authorPage__grid__audio__info">
-								<div class="authorPage__grid__audio__info__name txt"></div>
-								<div class="authorPage__grid__audio__info__author txt"></div>
-							</div>
-						</div> -->
+					<div class="rangeBox">
+						<input type="range" id="rangeTrack">
 					</div>
+				</div>
+			</div> -->
+		</div>
+		<div class="containerAP page" id="authorPlaylist">
+			<div class="authorPage">
+				<div class="authorPage__avatarBlock">
+					<img src="" alt="" id="authorImg">
+				</div>
+				<div class="authorPage__nameAuthor txt" id="authorName"></div>
+				<div class="authorPage__grid" id="AP_grid">
+					<!-- <div class="authorPage__grid__audio">
+						<img src="img/audioImg/clubbeztancev.jpg" alt="">
+						<div class="authorPage__grid__audio__forClick" onclick="playAudio()"></div>
+						<div class="authorPage__grid__audio__info">
+							<div class="authorPage__grid__audio__info__name txt"></div>
+							<div class="authorPage__grid__audio__info__author txt"></div>
+						</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
 	</div>
 	
 
+    <script type="text/javascript" src="scripts/bd.js"></script>
     <script type="text/javascript" src="scripts/cursor_light.js"></script>
     <script type="text/javascript" src="scripts/list.js"></script>
     <script type="text/javascript" src="scripts/variables.js"></script>
+    <script type="text/javascript" src="scripts/elements.js"></script>
     <script type="text/javascript" src="scripts/makeContent.js"></script>
     <script type="text/javascript" src="scripts/script.js"></script>
+    <script type="text/javascript" src="scripts/add_song.js"></script>
     <script type="text/javascript" src="scripts/audio.js"></script>
 </body>
 </html>

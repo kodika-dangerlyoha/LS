@@ -1,6 +1,5 @@
 // $bgColor: linear-gradient(270deg, #375991, rgb(35, 45, 75));
-// $bgColor: linear-gradient(270deg, rgb(15, 15, 15), rgb(45, 45, 45));
-$bgColor: linear-gradient(270deg, rgb(0, 0, 0), rgb(15, 15, 15));
+$bgColor: linear-gradient(270deg, rgb(0, 0, 0), rgb(30, 30, 30));
 $borderMain: 1px solid rgba(255, 255, 255, 0.15);
 $borderMain_hover: 1px solid rgba(255, 255, 255, 0.4);
 $shadowMain: 0 5px 30px -5px rgba(0, 0, 0, 0);
@@ -86,9 +85,13 @@ $italicFont: italic2;
     background: #000; /* Firefox */
 }
 
+
+.mainBlock {
+    padding-top: 50px;
+}
+
 body {
     background: $bgColor;
-    height: 100vh;
 }
 body::-webkit-scrollbar {
     display: none;
@@ -136,20 +139,16 @@ body::-webkit-scrollbar {
 
 header {
     // box-shadow: $shadowMain;
-    // height: 70px;
-    width: 300px;
-    top: 20px;
-    left: 20px;
-    bottom: 20px;
-    background-color: rgba(35, 35, 35, .3);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgb(45, 45, 45);
-    border-radius: 20px;
+    height: 70px;
+    left: 0;
+    right: 0;
+    top: 0;
     position: fixed;
     z-index: 100;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     transition: $mainTransition;
 
@@ -167,27 +166,17 @@ header {
         opacity: 0;
         transition: $mainTransition;
     }
-
     .navs {
         position: relative;
         z-index: 10;
         display: flex;
-        flex-direction: column;
-        gap: 5px;
-        padding: {
-            left: 10px;
-            right: 10px;
-        };
-        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        gap: 20px;
         &__nav {
-            font-size: 32px;
+            font-size: 28px;
             font-family: italic2;
             color: rgba(255, 255, 255, 0.6);
-            padding: 10px;
-            // background-color: rgba(255, 255, 255, 0.01);
-            background-color: rgba(15, 15, 15, 0.6); 
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
             transition: $mainTransition;
             cursor: pointer;
             &_active {
@@ -199,17 +188,23 @@ header {
         }
     }
     .mini_musicPlayer {
+        position: absolute;
+        top: 5px;
+        left: 5px;
         display: flex;
         align-items: center;
-        flex-direction: column;
         z-index: 99;
-        padding-top: 30px;
+
+        transition: $mainTransition;
+        transform: translateX(-23px);
+        &:hover {
+            transform: translateX(-5px);
+        }
         &__volumeRangeBlock {
-            display: none;
             transform: rotate(-90deg);
             width: 20px;
             height: 10px;
-            // display: flex;
+            display: flex;
             justify-content: center;
             align-items: end;
             margin-right: 2px;
@@ -235,14 +230,14 @@ header {
             }
         }
         &__imgBlock {
-            width: 200px;
-            height: 200px;
-            margin-bottom: 15px;
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
             cursor: pointer;
             animation: mini_musicPlayer_img .4s ease-out 1;
             & img {
                 width: 100%;
-                border-radius: 15px;
+                border-radius: 5px;
                 transition: $mainTransition;
             }
             &:hover img{
@@ -256,15 +251,75 @@ header {
         &__interface {
             transform: translateY(-1px);
             animation: mini_musicPlayer_text .4s ease-out 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            &__title {
+                display: flex;
+                & > span {
+                    display: block;
+                    font-size: 20px;
+                    margin-right: 5px;
+                    margin-left: 5px;
+                    color: rgb(255, 255, 255);
+                    font-family: $italicFont;
+                    cursor: default;
+                }
+            }
+            &__buttons {
+                display: flex;
+                gap: 7px;
+
+            }
+            &__button {
+                overflow: visible;
+                cursor: pointer;
+                border-radius: 0px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                & img {
+                    border-radius: 0px;
+                    width: 22px;
+                    height: 22px;
+                    filter: invert(1);
+                    transition: 0.1s;
+                }
+                &_rightArr {
+                    opacity: .8;
+                    & img {
+                        border-radius: 0px;
+                        width: 18px;
+                        height: 18px;
+                        filter: invert(1);
+                        transition: 0.1s;
+                    }
+                }
+                // &_leftArr {
+                //     transform: rotate(180deg);
+                //     & img {
+                //         border-radius: 0px;
+                //         width: 20px;
+                //         height: 20px;
+                //         filter: invert(1);
+                //         transition: 0.1s;
+                //     }
+                // }
+                &:hover img{
+                    transform: scale(0.95);
+                }
+                &:active img{
+                    transform: scale(0.2);
+                }
+            }
             &__trackname {
-                font-size: 22px;
+                font-size: 20px;
                 color: rgb(255, 255, 255);
                 font-family: $italicFont;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                max-width: 400px;
-                text-align: center;
+                max-width: 300px;
                 & > span {
                     color: rgb(200, 200, 200);
                     font-size: 16px;
@@ -274,47 +329,25 @@ header {
                 font-size: 20px;
                 color: rgb(230, 230, 230);
                 font-family: $italicFont;
-                text-align: center;
                 cursor: pointer;
-                    transition: $mainTransition;
-                    &:hover {
-                        color: rgb(255, 255, 255);
-                    }
+                // background-color: rgba(0, 0, 0, 0);
+                // border: 1px solid rgba(255, 255, 255, 0);
+                // border-radius: 5px;
+                transition: $mainTransition;
+                &:hover {
+                    color: rgb(255, 255, 255);
+                    // background-color: rgba(0, 0, 0, 0.5);
+                    // border-color: rgba(255, 255, 255, 0.1);
+                }
             }
         }
     }
 }
 
 .mainBlock {
-    position: fixed;
+    position: relative;
     z-index: 5;
-    top: 20px;
-    right: 20px;
-    left: 340px;
-    bottom: 20px;
-    background-color: rgba(35, 35, 35, .3);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(45, 45, 45, 1);
-    border-radius: 20px;
-    overflow: auto;
-    display: flex;
-    justify-content: center;
-    padding: {
-        top: 50px;
-        bottom: 50px;
-    };
-    & > div {
-        width: 1100px;
-    }
-    &_hideBG {
-        background-color: rgba(35, 35, 35, 0);
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0);
-        border: 1px solid rgba(45, 45, 45, 0);
-    }
-}
-
-.mainBlock::-webkit-scrollbar {
-    display: none;
+    margin-top: 70px;
 }
 
 .container {
@@ -322,7 +355,7 @@ header {
     grid-gap: 30px;
     grid-template-columns: repeat(6, minmax(0px, 1fr));
     animation: 0.5s cubic-bezier(0, 0, 0.1, 1) 1 openSitesContent;
-    padding-bottom: 50px;
+    padding-bottom: 100px;
     &__site {
         position: relative;
         z-index: 2;
@@ -409,7 +442,6 @@ header {
 }
 
 .playLists {
-    display: none;
     // background-color: rgba(0, 0, 0, 0.2); --
     // backdrop-filter: blur(30px); --
     // border: $borderMain;
@@ -418,6 +450,7 @@ header {
     border-radius: 15px;
     margin-bottom: 50px;
     animation: 0.5s cubic-bezier(0, 0, 0.1, 1) 1 openSitesContent;
+    display: none;
     & h2 {
         // text-align: center;
         font-size: 52px;
@@ -487,11 +520,31 @@ header {
     animation: 0.5s cubic-bezier(0, 0, 0.1, 1) 1 openSitesContent;
     & h2 {
         // text-align: center;
-        font-size: 52px;
-        font-family: $mainFont;
+        font-size: 32px;
+        font-family: italic2;
         margin-top: 0;
-        margin-bottom: 30px;
-        cursor: pointer;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 10px;
+        & > button {
+            font-size: 22px;
+            color: rgb(180, 180, 180);
+            font-family: italic2;
+            background-color: rgba(255, 255, 255, .01);
+            border: 1px solid rgba(255, 255, 255, .05);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: .2s;
+            &:hover {
+                color: rgb(255, 255, 255);
+                border-color: rgba(255, 255, 255, .1);
+            }
+            &:active {
+                transform: scale(0.95);
+            }
+        }
     }
     &__grid {
         display: grid;
@@ -502,6 +555,7 @@ header {
             display: flex;
             align-items: center;
             padding: 10px;
+            width: 442px;
             // background-color: rgba(255, 255, 255, 0.01);
             background-color: rgba(15, 15, 15, 0.6); 
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -609,9 +663,11 @@ header {
     // }
     &__bg:hover &__rangeBox{
         opacity: .5;
+        transform: translateY(0);
     }
     &__bg:hover &__interface{
         opacity: 1;
+        transform: translateY(0);
     }
     &__imgAlbum {
         border-radius: 15px;
@@ -634,6 +690,7 @@ header {
         text-align: center;
         font-size: 26px;
         font-family: $italicFont;
+        // animation: .8s cubic-bezier(0, 0, 0.1, 1.5) 1 openText_2;
         animation: 1s cubic-bezier(0, 0, 0.1, 1.5) 1 openText;
         white-space: nowrap;
         overflow: hidden;
@@ -649,7 +706,9 @@ header {
         font-size: 26px;
         font-family: $italicFont;
         color: rgb(200, 200, 200);
+        // animation: .8s cubic-bezier(0, 0, 0.1, 1.5) 1 openText_2;
         animation: 1s cubic-bezier(0, 0, 0.1, 1.5) 1 openText;
+        // animation-delay: .1s;
         cursor: pointer;
         white-space: nowrap;
         overflow: hidden;
@@ -668,7 +727,9 @@ header {
         align-items: center;
         animation: 1s cubic-bezier(0, 0, 0.1, 1.5) 1 openText;
         opacity: 0;
-        transition: $mainTransition;
+        // transition: $mainTransition;
+        transition: .3s cubic-bezier(0, 0, 0, 0.75);
+        transform: translateY(-10px);
         &__button {
             overflow: visible;
             cursor: pointer;
@@ -715,7 +776,10 @@ header {
     &__rangeBox {
         margin-top: 15px;
         opacity: 0;
-        transition: $mainTransition;
+        // transition: $mainTransition;
+        transition: .3s cubic-bezier(0, 0, 0, 0.75);
+        transform: translateY(-10px);
+        transition-delay: .15s;
         input[type = range] {
             height: 7px;
             border-radius: 2px;
@@ -847,4 +911,183 @@ header {
         //     }
         // }
     }
+}
+
+.addSong {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    -webkit-backdrop-filter: blur(100px);
+    backdrop-filter: blur(100px);
+    background-color: rgb(30, 30, 30, .7);
+    display: none;
+    opacity: 0;
+    align-items: center;
+    transition: .5s;
+    &__exit {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-family: italic2;
+        font-size: 22px;
+        color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        transition: .2s;
+        &:hover {
+            color: rgba(255, 255, 255, 1);
+        }
+    }
+    &__inner {
+        display: flex;
+        align-items: top;
+        justify-content: center;
+        width: 100%;
+        height: 700px;
+        gap: 30px;
+        animation: to_bottom .5s cubic-bezier(0, 0, 0.1, 1.5) 0s 1;
+        &__left {
+            width: 400px;
+        }
+        &__right {
+            & > h3 {
+                font-family: italic2;
+                font-size: 22px;
+                color: #fff;
+                display: block;
+                margin-bottom: 5px;
+                margin-top: 0;
+            }
+        }
+    }
+    & form {
+        width: 100%;
+        & > .form_part {
+            margin-bottom: 10px;
+            & > label {
+                font-family: italic2;
+                font-size: 22px;
+                color: #fff;
+                display: block;
+                margin-bottom: 5px;
+            }
+            & > input[type="text"] {
+                width: 100%;
+                box-sizing: border-box;
+                font-family: italic2;
+                color: #fff;
+                font-size: 20px;
+                display: block;
+                background-color: rgba(255, 255, 255, .03);
+                border: none;
+                border-radius: 10px;
+                padding: 20px;
+                box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.35);
+                outline: none;
+            }
+            & > input[type="file"] {
+                overflow: hidden;
+                width: 158px;
+                transition: .2s;
+                box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.35);
+                border-radius: 10px;
+                &::before { 
+                    width: 158px;
+                    display: inline-block;
+                    text-align: center;
+                    box-sizing: border-box;
+                    font-family: italic2;
+                    color: #fff;
+                    font-size: 20px;
+                    background-color: rgba(255, 255, 255, .03);
+                    border: none;
+                    border-radius: 10px;
+                    padding: 20px;
+                    outline: none;
+                    content: 'Выбрать файл';
+                    cursor: pointer;
+                    transition: .2s;
+                }
+                &:hover::before {
+                    background-color: rgba(255, 255, 255, .1);
+                }
+                &:active::before {
+                    transform: scale(0.95);
+                }
+            }
+        }
+    }
+    &__code {
+        background-color: rgba(255, 255, 255, .03);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.35);
+        width: 850px;
+        //max-width: 850px;
+        position: relative;
+        overflow: hidden;
+        & > code {
+            position: relative;
+            z-index: 5;
+            font-size: 16px;
+            color: #1ea0eb;
+            & ._blue {
+                color: #1ea0eb;
+            }
+            & ._green {
+                color: #23d981;
+            }
+        }
+        & > button {
+            position: relative;
+            z-index: 5;
+            margin-top: 20px;
+            display: block;
+            background-color: rgba(255, 255, 255, 0.01);
+            border-radius: 7px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: italic2;
+            font-size: 18px;
+            color: rgb(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: .2s;
+            width: 70px;
+            height: 30px;
+            &:hover {
+                color: rgba(255, 255, 255, 1);
+            }
+            &:active {
+                transform: scale(0.95);
+            }
+        }
+        &__inf {
+            z-index: 1;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            opacity: 0;
+            background-color: rgba(255, 255, 255, 0);
+            animation: code_inf 1.2s cubic-bezier(0, 0, 0, 0.75) 1;
+        }
+    }
+    &_open {
+        opacity: 1;
+    }
+}
+
+.forLoading {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+    background: $bgColor;
+    transition: .6s;
 }

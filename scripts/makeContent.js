@@ -2,25 +2,25 @@ gameList.forEach(site => {
     addGame(site);
 })
 
-// playlists.forEach(playlist => {
-//     addPlaylists(playlist);
-// })
+playlists.forEach(playlist => {
+    addPlaylists(playlist);
+})
 
 audios.forEach(audio => {
     addAudio(audio);
 })
 
-const get_audios_author_html = (audio, n) => {
-    return `<div class="authorPage__grid__audio music__grid__audioBlock audioBlock${audio.id}">
-                <img src="${audio.imgLink}" alt="">
-                <div class="music__grid__audioBlock__forHover"></div>
-                <div class="authorPage__grid__audio__forClick music__grid__audioBlock__forClick" onclick="playAudio(${n}, '${audio.author}')"></div>
-                <div class="authorPage__grid__audio__info music__grid__audioBlock__info">
-                    <div class="authorPage__grid__audio__info__name music__grid__audioBlock__info__name txt">${audio.name} <span>${audio.add_name}</span></div>
-                    <div class="authorPage__grid__audio__info__author music__grid__audioBlock__info__author txt">${audio.author}</div>
-                </div>
-            </div>`
-};
+// const get_audios_author_html = (audio, n) => {
+//     return `<div class="authorPage__grid__audio music__grid__audioBlock audioBlock${audio.id}">
+//                 <img src="${audio.imgLink}" alt="">
+//                 <div class="music__grid__audioBlock__forHover"></div>
+//                 <div class="authorPage__grid__audio__forClick music__grid__audioBlock__forClick" onclick="playAudio(${n}, '${audio.author}')"></div>
+//                 <div class="authorPage__grid__audio__info music__grid__audioBlock__info">
+//                     <div class="authorPage__grid__audio__info__name music__grid__audioBlock__info__name txt">${audio.name} <span>${audio.add_name}</span></div>
+//                     <div class="authorPage__grid__audio__info__author music__grid__audioBlock__info__author txt">${audio.author}</div>
+//                 </div>
+//             </div>`
+// };
 
 // function addGame(siteInfo) {
 //     if (siteInfo.imgLink == '') {
@@ -56,8 +56,8 @@ function addGame(siteInfo) {
             <div class="container__site__forHover" style="background-color: ${siteInfo.color};"></div>
             </a>
             `;
-    let grid = document.getElementById("containerGrid");
-    grid.innerHTML += a;
+    // let grid = document.getElementById("containerGrid");
+    document.getElementById("containerGrid").innerHTML += a;
 }
 
 function addPlaylists(playlistInfo) {
@@ -75,7 +75,7 @@ function addPlaylists(playlistInfo) {
 
 function makeAP(authorName) {
     let audioList = "";
-    console.log(get_audios_author(authorName))
+    //console.log(get_audios_author(authorName))
     let n = 0;
     get_audios_author(authorName).forEach(audio => {
         audioList += get_audios_author_html(audio, n);
@@ -85,11 +85,11 @@ function makeAP(authorName) {
     document.querySelector('#AP_grid').innerHTML = audioList;
     
     let audio_block_active = document.querySelectorAll(class_audioBlock_now)[1];
-    console.log(audio_block_active);
+    //console.log(audio_block_active);
 
     if (audio_block_active) {
         audio_block_active.classList.add('music__grid__audioBlock_active');
-        console.log(audio_block_active);
+        //console.log(audio_block_active);
     }
 
     let author = authors.find(elem => elem.name == authorName);
@@ -114,19 +114,21 @@ function addAudio(audioInfo) {
     if (!audioInfo.add_name) {
         audioInfo.add_name = "";
     }
-    let blockSiteHTML = `<img src="${audioInfo.imgLink}" alt="">
-                            <div class="music__grid__audioBlock__forHover"></div>
-                            <div class="music__grid__audioBlock__forClick" onclick="playAudio(${audioInfo.id}, 'all')"></div>
-                            <div class="music__grid__audioBlock__info">
-                                <div class="music__grid__audioBlock__info__name txt">${audioInfo.name} <span>${audioInfo.add_name}</span></div>
-                                <div class="music__grid__audioBlock__info__author txt">${audioInfo.author}</div>
-                            </div>`;
-    let grid = document.getElementById("music__grid");
-    let div = document.createElement('div');
-    div.classList.add("music__grid__audioBlock");
-    div.classList.add(`audioBlock${audioInfo.id}`);
-    div.innerHTML = blockSiteHTML;
-    grid.append(div);
+    // let blockSiteHTML = `<img src="${audioInfo.imgLink}" alt="">
+    //                         <div class="music__grid__audioBlock__forHover"></div>
+    //                         <div class="music__grid__audioBlock__forClick" onclick="playAudio(${audioInfo.id}, 'all')"></div>
+    //                         <div class="music__grid__audioBlock__info">
+    //                             <div class="music__grid__audioBlock__info__name txt">${audioInfo.name} <span>${audioInfo.add_name}</span></div>
+    //                             <div class="music__grid__audioBlock__info__author txt">${audioInfo.author}</div>
+    //                         </div>`;
+    // let blockSiteHTML = get_audio_html(audioInfo);
+    // let grid = document.getElementById("music__grid");
+    // let div = document.createElement('div');
+    // div.classList.add("music__grid__audioBlock");
+    // div.classList.add(`audioBlock${audioInfo.id}`);
+    // div.innerHTML = blockSiteHTML;
+    // grid.append(div);
+    document.getElementById("music__grid").innerHTML += get_audio_html(audioInfo);
 }
 
 function addMusicplayer(audioInfo, author, num) {
@@ -165,30 +167,15 @@ function addMusicplayer(audioInfo, author, num) {
     grid.append(div);
 }
 
-function addMiniMusicPlayer(audioInfo) {
+function addMiniMusicPlayer(audioInfo, author, num) {
     if (audioInfo.imgLink == "") {
         audioInfo.imgLink = "img/audioImg/photo_2024-01-04_03-30-21.jpg";
     }
-    let innerMmp = document.getElementById("innerMmp");
-    innerMmp.innerHTML = "";
 
     if (!audioInfo.add_name) {
         audioInfo.add_name = "";
     }
     
-    let blockSiteHTML = `<div class="mini_musicPlayer__volumeRangeBlock">
-                            <input type="range" id="volumerange" value = "${nVolume}">
-                        </div>
-                        <div class="mini_musicPlayer__imgBlock" onclick="openMusicPlayer()">
-                            <img src="${audioInfo.imgLink}" alt="">
-                        </div>
-                        <div class="mini_musicPlayer__interface">
-                            <div class="mini_musicPlayer__interface__trackname txt">${audioInfo.name} <span>${audioInfo.add_name}</span> </div>
-                            <div class="mini_musicPlayer__interface__author txt" onclick="openAuthor('${audioInfo.author}')">${audioInfo.author}</div>
-                        </div>`;
-    
-    let div = document.createElement('div');
-    div.classList.add("mini_musicPlayer");
-    div.innerHTML = blockSiteHTML;
-    innerMmp.append(div);
+    // let blockSiteHTML = get_mini_MP_html(audioInfo, nVolume, num, author);
+    document.querySelector('#inner_mini_mp').innerHTML = get_mini_MP_html(audioInfo, nVolume, num, author);
 }
