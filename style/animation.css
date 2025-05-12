@@ -38,3 +38,12 @@
         filter: brightness(0);
     }
 }
+
+@keyframes mousedown_cursor_light {
+    from {
+        filter: blur(100px);
+    }
+    to {
+        filter: blur(200px);
+    }
+}

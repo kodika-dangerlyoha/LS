@@ -97,6 +97,29 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+.cursorLight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 160px;
+    width: 160px;
+    z-index: 1;
+    // background-color: $colorHover;
+    background: red;
+    opacity: .7;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(100px);
+    transition: background-color .5s, opacity 1s, filter 1s;
+    border-radius: 50%;
+    pointer-events: none;
+    &_hidden {
+        opacity: 0;
+    }
+    &_down {
+        animation: mousedown_cursor_light 1s ease-in-out 1;
+    }
+}
+
 .bgAlbum {
     position: fixed;
     top: -50px;

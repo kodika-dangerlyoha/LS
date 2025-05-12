@@ -22,23 +22,41 @@ const get_audios_author_html = (audio) => {
             </div>`
 };
 
+// function addGame(siteInfo) {
+//     if (siteInfo.imgLink == '') {
+//         siteInfo.imgLink = "img/any.png";
+//         siteInfo.color = "#00a1f5";
+//     }
+
+//     let blockSiteHTML = `<div class="container__site__forImg flex-center"><img class="imgSites" src="${siteInfo.imgLink}" alt=""></div> 
+//                         <div class="container__site__nameSite txt">${siteInfo.name}</div>
+//                         `;
+//     let grid = document.getElementById("containerGrid");
+//     let a = document.createElement('a');
+//     a.classList.add("container__site");
+//     a.innerHTML = blockSiteHTML;
+//     a.href = siteInfo.link;
+//     a.target = "_blank";
+//     a.onmouseover = `show_cursor_light(${siteInfo.color})`;
+//     a.onmouseout = `hidden_cursor_light()`;
+//     console.log(a.onmouseout);
+//     grid.append(a);
+// }
+
 function addGame(siteInfo) {
     if (siteInfo.imgLink == '') {
         siteInfo.imgLink = "img/any.png";
         siteInfo.color = "#00a1f5";
     }
 
-    let blockSiteHTML = `<div class="container__site__forImg flex-center"><img class="imgSites" src="${siteInfo.imgLink}" alt=""></div> 
-                        <div class="container__site__nameSite txt">${siteInfo.name}</div>
-                        <div class="container__site__forHover" style="background-color: ${siteInfo.color};"></div>
-                        `;
+    let a = `
+            <a  class="container__site" target="_blank" onmouseover="show_cursor_light('${siteInfo.color}')" onmouseout="hidden_cursor_light()">
+            <div class="container__site__forImg flex-center"><img class="imgSites" src="${siteInfo.imgLink}" alt=""></div> 
+            <div class="container__site__nameSite txt">${siteInfo.name}</div>
+            </a>
+            `;
     let grid = document.getElementById("containerGrid");
-    let a = document.createElement('a');
-    a.classList.add("container__site");
-    a.innerHTML = blockSiteHTML;
-    a.href = siteInfo.link;
-    a.target = "_blank";
-    grid.append(a);
+    grid.innerHTML += a;
 }
 
 function addPlaylists(playlistInfo) {
