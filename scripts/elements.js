@@ -37,7 +37,7 @@ const get_mini_MP_html = (audioInfo, nVolume, num, author) => {
                     <div class="mini_musicPlayer__interface__trackname txt">${audioInfo.name} <span>${audioInfo.add_name}</span> </div>
                 </div>
                 <div class="mini_musicPlayer__interface__buttons">
-                    <div class="mini_musicPlayer__interface__button" onclick="playAudio(${num})">
+                    <div class="mini_musicPlayer__interface__button" onclick="playAudio(${num}, '${playlist}')">
                         <img src="img/icons/play.png" alt="" id="icoPlayAudio_mini">
                     </div>
                     <div class="mini_musicPlayer__interface__button mini_musicPlayer__interface__button_rightArr" onclick="changeAudio(1, '${author}')">

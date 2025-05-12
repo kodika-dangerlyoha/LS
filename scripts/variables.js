@@ -7,7 +7,7 @@ let checkOpenPlaylists = true;
 let checkOpenMusic = true;
 
 document.getElementById('music__grid').style.display = "grid";
-document.getElementById('playLists__grid').style.display = "grid";
+// document.getElementById('playLists__grid').style.display = "grid";
 
 // ---------- audio --------------
 let audioPlaying = false;

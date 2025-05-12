@@ -2,9 +2,9 @@ gameList.forEach(site => {
     addGame(site);
 })
 
-playlists.forEach(playlist => {
-    addPlaylists(playlist);
-})
+// playlists.forEach(playlist => {
+//     addPlaylists(playlist);
+// })
 
 audios.forEach(audio => {
     addAudio(audio);
@@ -148,7 +148,7 @@ function addMusicplayer(audioInfo, author, num) {
                                     <div class="musicPlayer__interface__button musicPlayer__interface__button_leftArr" onclick="changeAudio(-1, '${author}')">
                                         <img src="img/icons/rArr.png" alt="">
                                     </div>
-                                    <div class="musicPlayer__interface__button" onclick="playAudio(${num})">
+                                    <div class="musicPlayer__interface__button" onclick="playAudio(${num}, '${author}')">
                                         <img src="img/icons/play.png" alt="" id="icoPlayAudio">
                                     </div>
                                     <div class="musicPlayer__interface__button musicPlayer__interface__button_rightArr" onclick="changeAudio(1, '${author}')">
@@ -159,7 +159,7 @@ function addMusicplayer(audioInfo, author, num) {
                                     <input type="range" id="rangeTrack" step="0.01" onchange="onchange_audioRange()">
                                 </div>
                             </div>
-                            `;
+                        `;
     
     let div = document.createElement('div');
     div.classList.add("musicPlayer");

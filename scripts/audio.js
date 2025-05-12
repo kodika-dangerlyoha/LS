@@ -51,45 +51,76 @@ function playAudio_animation(i) {
     document.querySelector('.musicPlayer__imgAlbum').style.boxShadow = "0 0 30px 0px rgba(0, 0, 0, 0)";
 }
 
+function play_new_audio(num, author) {
+    audioFile.pause();
+    getAudioFile(num, author);
+    audioFile.play();
+    playAudio_animation(true);
+    const audio = get_audios_author(author)[num];
+    playlist = author;
+    document.title = `${audio.name} - ${audio.author}`;
+    var favicon = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
+    favicon.forEach(function(element) {
+        element.setAttribute('href', audio.imgLink);
+    });
+
+    audioRange.max = audioFile.duration;
+
+    audioPlaying = true;
+    document.querySelector('#icoPlayAudio').src = "img/icons/pause.png";
+    document.querySelector('#icoPlayAudio_mini').src = "img/icons/pause.png";
+    currnum = num;
+    changeClasslistAudioBlocks(audio.id);
+}
+
 function playAudio(num, author) {
     if (num != currnum) {
-        audioFile.pause();
-        getAudioFile(num, author);
-        audioFile.play();
-        playAudio_animation(true);
-        const audio = get_audios_author(author)[num];
-        playlist = author;
-        document.title = `${audio.name} - ${audio.author}`;
-        var favicon = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
-        favicon.forEach(function(element) {
-            element.setAttribute('href', audio.imgLink);
-        });
+        // audioFile.pause();
+        // getAudioFile(num, author);
+        // audioFile.play();
+        // playAudio_animation(true);
+        // const audio = get_audios_author(author)[num];
+        // playlist = author;
+        // document.title = `${audio.name} - ${audio.author}`;
+        // var favicon = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
+        // favicon.forEach(function(element) {
+        //     element.setAttribute('href', audio.imgLink);
+        // });
 
-        audioRange.max = audioFile.duration;
+        // audioRange.max = audioFile.duration;
 
-        audioPlaying = true;
-        document.querySelector('#icoPlayAudio').src = "img/icons/pause.png";
-        document.querySelector('#icoPlayAudio_mini').src = "img/icons/pause.png";
-        currnum = num;
-        changeClasslistAudioBlocks(audio.id);
+        // audioPlaying = true;
+        // document.querySelector('#icoPlayAudio').src = "img/icons/pause.png";
+        // document.querySelector('#icoPlayAudio_mini').src = "img/icons/pause.png";
+        // currnum = num;
+        // changeClasslistAudioBlocks(audio.id);
+        play_new_audio(num, author);
+    }
+    else if (playlist == author) {
+        //else {
+            if (audioPlaying) {
+                audioFile.pause();
+                audioPlaying = false;
+    
+                document.querySelector('#icoPlayAudio').src = "img/icons/play.png";
+                document.querySelector('#icoPlayAudio_mini').src = "img/icons/play.png";
+                playAudio_animation(false);
+                // console.log('if');
+            }
+            else {
+                audioFile.play();
+                audioPlaying = true;
+    
+                document.querySelector('#icoPlayAudio').src = "img/icons/pause.png";
+                document.querySelector('#icoPlayAudio_mini').src = "img/icons/pause.png";
+                playAudio_animation(true);
+                // console.log('else');
+            }
+        //}
     }
     else {
-        if (audioPlaying) {
-            audioFile.pause();
-            audioPlaying = false;
-
-            document.querySelector('#icoPlayAudio').src = "img/icons/play.png";
-            document.querySelector('#icoPlayAudio_mini').src = "img/icons/play.png";
-            playAudio_animation(false);
-        }
-        else {
-            audioFile.play();
-            audioPlaying = true;
-
-            document.querySelector('#icoPlayAudio').src = "img/icons/pause.png";
-            document.querySelector('#icoPlayAudio_mini').src = "img/icons/pause.png";
-            playAudio_animation(true);
-        }
+        play_new_audio(num, author);
+        // console.log('else2');
     }
 }
 

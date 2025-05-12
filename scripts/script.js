@@ -31,7 +31,7 @@ function openPage(n, namePage) {
 function openMusicPlayer() {
     if (MPopen) {
         document.querySelector('#header').style.opacity = "1";
-        document.querySelector('.bgAlbum').style.opacity = "0";
+        document.querySelector('.bgAlbum').style.opacity = "0.1";
         document.getElementById('musicPlayer').style.display = "none";
         openPage(1, 'musicBox');
 

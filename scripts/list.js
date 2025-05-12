@@ -120,9 +120,9 @@ let gameList = [
     },
     {
         'id': 18,
-        'name': "x5club",
+        'name': "5ka",
         'imgLink': "img/X5_Club_white.png",
-        'link': "https://x5club.ru/lk/home",
+        'link': "https://5ka.ru/?ysclid=majuruf8ge901673455",
         'color': "#5faf2d",
     },
     {
@@ -925,7 +925,6 @@ let audios = [
         'author':  "Polyana",
         'add_name':  "",
         'imgLink':  "img/audioImg/proshu.png",
-        
         'file':  "audios/Polyana - Плюшки.mp3",
     },
     {
@@ -934,7 +933,6 @@ let audios = [
         'author':  "Polyana",
         'add_name':  "",
         'imgLink':  "img/audioImg/proshu.png",
-        
         'file':  "audios/Polyana - Многознаал.mp3",
     },
     {
@@ -943,7 +941,6 @@ let audios = [
         'author':  "молодой калуга",
         'add_name':  "",
         'imgLink':  "img/audioImg/blockseason.jpg",
-        
         'file':  "audios/молодой калуга - Цели.mp3",
     },
     {
@@ -952,8 +949,63 @@ let audios = [
         'author':  "молодой калуга",
         'add_name':  "",
         'imgLink':  "img/audioImg/blockseason.jpg",
-        
         'file':  "audios/молодой калуга - Young thug.mp3",
+    },
+    {
+        'id': 97,
+        'name':  "Сломана",
+        'author':  "Baby Melo",
+        'add_name':  "",
+        'imgLink':  "img/audioImg/slomana.jpg",
+        'file':  "audios/Baby Melo, FADE031 - Сломана.mp3",
+    },
+    {
+        'id': 98,
+        'name':  "feaR2",
+        'author':  "PINQ",
+        'add_name':  "",
+        'imgLink':  "img/audioImg/fear2.jpg",
+        'file':  "audios/PINQ - feaR2.mp3",
+    },
+    {
+        'id': 99,
+        'name':  "Привет",
+        'author':  "Kambulat",
+        'add_name':  "",
+        'imgLink':  "img/audioImg/kamb.png",
+        'file':  "audios/Kambulat - Привет.mp3",
+    },
+    {
+        'id': 100,
+        'name':  "Осколок",
+        'author':  "OBLADAET",
+        'add_name':  "",
+        'imgLink':  "img/audioImg/735.jpg",
+        'file':  "audios/OBLADAET - Осколок.mp3",
+    },
+    {
+        'id': 101,
+        'name':  "FAIRYTALE",
+        'author':  "OBLADAET",
+        'add_name':  "",
+        'imgLink':  "img/audioImg/735.jpg",
+        'file':  "audios/OBLADAET - FAIRYTALE.mp3",
+    },
+    {
+        'id': 102,
+        'name':  "GTA",
+        'author':  "OBLADAET",
+        'add_name':  "",
+        'imgLink':  "img/audioImg/735.jpg",
+        'file':  "audios/OBLADAET - GTA.mp3",
+    },
+    {
+        'id': 103,
+        'name':  "ONE CALL",
+        'author':  "Pepel Nahudi",
+        'add_name':  "",
+        'imgLink':  "img/audioImg/autumn.png",
+        'file':  "audios/Pepel Nahudi - ONE CALL.mp3",
     },
 ]
 
