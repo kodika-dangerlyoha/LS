@@ -763,6 +763,76 @@ let audios = [
         'imgLink': "img/audioImg/zabud.jpg",
         'file': "audios/Guram D, Toxi$ - Забудь.mp3",
     },
+    {
+        'id': 73,
+        'name': "VICTIM",
+        'author': "Kai Angel",
+        'imgLink': "img/audioImg/godsystem.jpg",
+        'file': "audios/Kai Angel - VICTIM.mp3",
+    },
+    {
+        'id': 74,
+        'name': "SLAYERR",
+        'author': "Kai Angel",
+        'imgLink': "img/audioImg/godsystem.jpg",
+        'file': "audios/Kai Angel - SLAYERR.mp3",
+    },
+    {
+        'id': 75,
+        'name': "BAD BITCHES ONLY",
+        'author': "Kai Angel",
+        'imgLink': "img/audioImg/godsystem.jpg",
+        'file': "audios/Kai Angel - BAD BITCHES ONLY.mp3",
+    },
+    {
+        'id': 76,
+        'name': "1-800-PARADISE",
+        'author': "Kai Angel",
+        'imgLink': "img/audioImg/godsystem.jpg",
+        'file': "audios/Kai Angel - 1-800-PARADISE.mp3",
+    },
+    {
+        'id': 77,
+        'name': "HILLS",
+        'author': "Kai Angel",
+        'imgLink': "img/audioImg/godsystem.jpg",
+        'file': "audios/Kai Angel - HILLS.mp3",
+    },
+    {
+        'id': 78,
+        'name': "ХОЛОД",
+        'author': "Kai Angel",
+        'imgLink': "img/audioImg/godsystem.jpg",
+        'file': "audios/Kai Angel - ХОЛОД.mp3",
+    },
+    {
+        'id': 79,
+        'name': "40",
+        'author': "rizza",
+        'imgLink': "img/audioImg/40.jpg",
+        'file': "audios/rizza - 40.mp3",
+    },
+    {
+        'id': 80,
+        'name': "Сегодня",
+        'author': "xxxmanera",
+        'imgLink': "img/audioImg/segod.jpg",
+        'file': "audios/xxxmanera - Сегодня.mp3",
+    },
+    {
+        'id': 81,
+        'name': "Madam",
+        'author': "Kai Angel",
+        'imgLink': "img/audioImg/madam.jpg",
+        'file': "audios/Kai Angel - Madam.mp3",
+    },
+    {
+        'id': 82,
+        'name': "ROVVER",
+        'author': "smazzi",
+        'imgLink': "img/audioImg/rovver.jpg",
+        'file': "audios/smazzi - ROVVER.mp3",
+    },
 ]
 
 let authors = [
@@ -785,5 +855,10 @@ let authors = [
         'id': 3,
         'name': "LILDRUGHILL",
         'imgLink': "img/authros/lildrughill.jpg",
+    },
+    {
+        'id': 4,
+        'name': "Kai Angel",
+        'imgLink': "img/authros/kai.jpg",
     },
 ]

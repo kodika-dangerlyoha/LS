@@ -1,11 +1,13 @@
 // let audios_now;
 
+let playlist = 'all';
+
 function get_audios_author(author) {
     if (author == "all") {
         return audios;
     }
     else if (author) {
-        return audios.filter(audio => audio.author === author);
+        return audios.filter(audio => audio.author == author);
     }
 }
 
@@ -23,10 +25,9 @@ function changeClasslistAudioBlocks(num) {
 function getAudioFile(num, author) {
     // let audio = audios_now[audios_now.findIndex(audio => audio.id == num)];
     let audio = get_audios_author(author)[num];
-    console.log(audio);
 
     audioFile = new Audio(audio.file);
-    addMusicplayer(audio, author);
+    addMusicplayer(audio, author, num);
     addMiniMusicPlayer(audio);
     audioFile.volume =  document.getElementById('volumerange').value / 100;
     document.querySelector('#bgImgAlbum').src = audio.imgLink;
@@ -57,10 +58,12 @@ function playAudio(num, author) {
         getAudioFile(num, author);
         audioFile.play();
         playAudio_animation(true);
-        document.title = `${audios[num].name} - ${audios[num].author}`;
+        const audio = get_audios_author(author)[num];
+        playlist = author;
+        document.title = `${audio.name} - ${audio.author}`;
         var favicon = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
         favicon.forEach(function(element) {
-            element.setAttribute('href', audios[num].imgLink);
+            element.setAttribute('href', audio.imgLink);
         });
 
         audioRange.max = audioFile.duration;
@@ -68,8 +71,7 @@ function playAudio(num, author) {
         audioPlaying = true;
         document.querySelector('#icoPlayAudio').src = "img/icons/pause.png";
         currnum = num;
-
-        changeClasslistAudioBlocks(num);
+        changeClasslistAudioBlocks(audio.id);
     }
     else {
         if (audioPlaying) {
@@ -99,23 +101,23 @@ getAudioFile(0, "all");
 
 function changeAudio(i, author) {
     currnum += i;
-    let audio = get_audios_author(author);
+    let audios = get_audios_author(author);
     if (currnum < 0) {
-        playAudio(audio.length - 1, 'all');
+        playAudio(audios.length - 1, playlist);
     }
-    else if (currnum > audio.length - 1) {
-        playAudio(0, 'all');
+    else if (currnum > audios.length - 1) {
+        playAudio(0, playlist);
     }
     else {
         audioFile.pause();
         getAudioFile(currnum, author);
         audioFile.play();
-        document.title = `${audio[currnum].name} - ${audio[currnum].author}`;
+        document.title = `${audios[currnum].name} - ${audios[currnum].author}`;
         playAudio_animation(true);
 
         var favicon = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
         favicon.forEach(function(element) {
-            element.setAttribute('href', audio[currnum].imgLink);
+            element.setAttribute('href', audios[currnum].imgLink);
         });
     
         audioRange.max = audioFile.duration;
@@ -123,26 +125,9 @@ function changeAudio(i, author) {
         audioPlaying = true;
         document.querySelector('#icoPlayAudio').src = "img/icons/pause.png";
     
-        changeClasslistAudioBlocks(currnum);
+        changeClasslistAudioBlocks(audios[currnum].id);
     }
 }
-
-// document.querySelector('#volumerange').addEventListener("change", function() {
-//     console.log("------------------------------------");
-//     audioFile.currentTime = this.value;
-//     console.log(this.value);
-//     console.log(audioFile.currentTime);
-//     console.log("------------------------------------");
-// });
-
-// document.getElementById('volumerange').addEventListener("change", function() {
-//     console.log("------------------------------")
-//     audioFile.volume = this.value / 100;
-// });
-
-// document.getElementById('volumerange').onchange = function(){
-//     audioFile.volume = document.getElementById('volumerange').value / 100;
-// }
 
 function checkVolume() {
     nVolume = document.getElementById('volumerange').value;
@@ -161,13 +146,8 @@ function checkDuration() {
     audioRange.value = audioFile.currentTime;
 
     if (audioFile.currentTime == audioFile.duration) {
-        changeAudio(1, 'all');
+        changeAudio(1, playlist);
     }
 }
 
 setInterval(checkDuration, 1000);
-
-
-
-// console.log(audioRange);
-// console.log(audioRange.value);

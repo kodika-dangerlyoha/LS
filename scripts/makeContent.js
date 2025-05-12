@@ -10,11 +10,11 @@ audios.forEach(audio => {
     addAudio(audio);
 })
 
-const get_audios_author_html = (audio) => {
+const get_audios_author_html = (audio, n) => {
     return `<div class="authorPage__grid__audio music__grid__audioBlock audioBlock${audio.id}">
                 <img src="${audio.imgLink}" alt="">
                 <div class="music__grid__audioBlock__forHover"></div>
-                <div class="authorPage__grid__audio__forClick music__grid__audioBlock__forClick" onclick="playAudio(${audio.id}, '${audio.author}')"></div>
+                <div class="authorPage__grid__audio__forClick music__grid__audioBlock__forClick" onclick="playAudio(${n}, '${audio.author}')"></div>
                 <div class="authorPage__grid__audio__info music__grid__audioBlock__info">
                     <div class="authorPage__grid__audio__info__name music__grid__audioBlock__info__name txt">${audio.name} <span>${audio.add_name}</span></div>
                     <div class="authorPage__grid__audio__info__author music__grid__audioBlock__info__author txt">${audio.author}</div>
@@ -50,9 +50,10 @@ function addGame(siteInfo) {
     }
 
     let a = `
-            <a  class="container__site" target="_blank" onmouseover="show_cursor_light('${siteInfo.color}')" onmouseout="hidden_cursor_light()">
+            <a href="${siteInfo.link}" class="container__site" target="_blank" onmouseover="show_cursor_light('${siteInfo.color}')" onmouseout="hidden_cursor_light()">
             <div class="container__site__forImg flex-center"><img class="imgSites" src="${siteInfo.imgLink}" alt=""></div> 
             <div class="container__site__nameSite txt">${siteInfo.name}</div>
+            <div class="container__site__forHover" style="background-color: ${siteInfo.color};"></div>
             </a>
             `;
     let grid = document.getElementById("containerGrid");
@@ -75,9 +76,10 @@ function addPlaylists(playlistInfo) {
 function makeAP(authorName) {
     let audioList = "";
     console.log(get_audios_author(authorName))
-
+    let n = 0;
     get_audios_author(authorName).forEach(audio => {
-        audioList += get_audios_author_html(audio);
+        audioList += get_audios_author_html(audio, n);
+        n++;
     });
 
     document.querySelector('#AP_grid').innerHTML = audioList;
@@ -98,78 +100,12 @@ function makeAP(authorName) {
     }
 
     else {
-        avatar = audios.find(elem => elem.author == authorName).imgLink;
+        avatar = audios.toReversed().find(elem => elem.author == authorName).imgLink;
     }
 
     document.getElementById('authorName').innerText = authorName;
     document.getElementById('authorImg').src = avatar;
 }
-
-// function makeAP(authorName) {
-//     let avatar = "";
-
-//     let contentAP = document.getElementById('authorPlaylist');
-
-//     div.innerHTML = "";
-
-//     function addAudio_authorPlaylist() {
-//         let AP_grid = document.createElement('div');
-//         AP_grid.classList.add('authorPage__grid');
-//         audios.forEach(audio => {
-//             if (audio.author == authorName) {
-//                 if (!audio.imgLink) {
-//                     audio.imgLink = "img/audioImg/photo_2024-01-04_03-30-21.jpg";
-//                 }
-//                 if (!audio.add_name) {
-//                     audio.add_name = "";
-//                 }
-//                 let blockSiteHTML = `<img src="${audio.imgLink}" alt="">
-//                                     <div class="authorPage__grid__audio__forClick music__grid__audioBlock__forClick" onclick="playAudio(${audio.id})"></div>
-//                                     <div class="authorPage__grid__audio__info music__grid__audioBlock__info">
-//                                         <div class="authorPage__grid__audio__info__name music__grid__audioBlock__info__name txt">${audio.name} <span>${audio.add_name}</span></div>
-//                                         <div class="authorPage__grid__audio__info__author music__grid__audioBlock__info__author txt">${audio.author}</div>
-//                                     </div>`;
-//                 let div = document.createElement('div');
-//                 div.classList.add("authorPage__grid__audio");
-//                 div.classList.add("music__grid__audioBlock");
-//                 div.classList.add(`audioBlock-${audio.id}`);
-//                 if (class_audioBlock_now == `.audioBlock-${audio.id}`) {
-//                     div.classList.add('music__grid__audioBlock_active');
-//                 }
-//                 div.innerHTML = blockSiteHTML;
-//                 AP_grid.append(div);
-//             }
-//         })
-//         return AP_grid.innerHTML;
-//     }
-
-//     console.log(addAudio_authorPlaylist());
-
-//     authors.forEach(elem => {
-//         if (elem.name == authorName) {
-//             avatar = elem.imgLink;
-//         }
-//     })
-
-//     if (avatar == "") {
-//         audios.forEach(elem => {
-//             if (elem.author == authorName) {
-//                 avatar = elem.imgLink;
-//             }
-//         })
-//     }
-
-//     let blockSiteHTML = `<div class="authorPage__avatarBlock">
-//                             <img src="${avatar}" alt="">
-//                         </div>
-//                         <div class="authorPage__nameAuthor txt">${authorName}</div>
-//                         <div class="authorPage__grid" id="AP_grid">
-//                         ${addAudio_authorPlaylist()}
-//                         </div>`;
-
-//     div.innerHTML = blockSiteHTML;
-//     contentAP.append(div);
-// }
 
 function addAudio(audioInfo) {
     if (audioInfo.imgLink == "") {
@@ -193,7 +129,7 @@ function addAudio(audioInfo) {
     grid.append(div);
 }
 
-function addMusicplayer(audioInfo, author) {
+function addMusicplayer(audioInfo, author, num) {
     if (audioInfo.imgLink == "") {
         audioInfo.imgLink = "img/audioImg/photo_2024-01-04_03-30-21.jpg";
     }
@@ -210,7 +146,7 @@ function addMusicplayer(audioInfo, author) {
                                     <div class="musicPlayer__interface__button musicPlayer__interface__button_leftArr" onclick="changeAudio(-1, '${author}')">
                                         <img src="img/icons/rArr.png" alt="">
                                     </div>
-                                    <div class="musicPlayer__interface__button" onclick="playAudio(${audioInfo.id})">
+                                    <div class="musicPlayer__interface__button" onclick="playAudio(${num})">
                                         <img src="img/icons/play.png" alt="" id="icoPlayAudio">
                                     </div>
                                     <div class="musicPlayer__interface__button musicPlayer__interface__button_rightArr" onclick="changeAudio(1, '${author}')">

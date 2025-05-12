@@ -52,14 +52,14 @@ function openMusicPlayer() {
 
 function openPlaylists() {
     if (checkOpenPlaylists == true) {
-        document.querySelector(".music__grid").style.gridTemplateColumns = "repeat(3, minmax(0px, 1fr))";
+        // document.querySelector(".music__grid").style.gridTemplateColumns = "repeat(3, minmax(0px, 1fr))";
         document.getElementById("h2_playlists").style.textAlign = "center";
         document.getElementById('playLists__grid').style.display = "none";
         document.getElementById('h2_playlists').style.marginBottom = "0px";
         checkOpenPlaylists = false;
     }
     else {
-        document.querySelector(".music__grid").style.gridTemplateColumns = "repeat(2, minmax(0px, 1fr))";
+        // document.querySelector(".music__grid").style.gridTemplateColumns = "repeat(2, minmax(0px, 1fr))";
         document.getElementById("h2_playlists").style.textAlign = "left";
         document.getElementById('playLists__grid').style.display = "grid";
         document.getElementById('h2_playlists').style.marginBottom = "30px";
