@@ -1,0 +1,57 @@
+.txt {
+	font-family: sans-serif;
+	color: white;
+	cursor: default;
+}
+
+body{
+	background-color: black;
+	margin: 0;
+}
+
+a{
+	text-decoration: none;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+div {
+	box-sizing: border-box;
+}
+
+.flex-center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.absolute-zero{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.fixed-zero{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.forRes{
+	position: fixed;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+
+	background: rgba(0, 0, 0, 0);
+	backdrop-filter: blur(0px);
+	display: none;
+	z-index: 9999;
+
+	transition: 1s;
+}

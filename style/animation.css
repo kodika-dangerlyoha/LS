@@ -1,0 +1,40 @@
+@keyframes openSites {
+    from {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes openSitesContent {
+    from {
+        filter: blur(20px) grayscale(1);
+        transform: scale(1.2);
+    }
+    to {
+        filter: blur(0px) grayscale(0);
+        transform: scale(1);
+    }
+}
+
+@keyframes openText {
+    from {
+        filter: blur(50px);
+    }
+    to {
+        filter: blur(0px);
+    }
+}
+
+@keyframes brightImgAlbum {
+    from {
+        filter: brightness(0);
+    }
+    50% {
+        filter: brightness(1);
+    }
+    to {
+        filter: brightness(0);
+    }
+}
