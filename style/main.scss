@@ -806,17 +806,49 @@ header {
 
     display: flex;
     justify-content: center;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .authorPage {
     margin-top: 92px;
     animation: 0.5s cubic-bezier(0, 0, 0.1, 1) 1 openSitesContent;
+    &__top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__banner {
+        width: 1366px;
+        height: 300px;
+        border-radius: 15px;
+        border: $borderMain;
+        overflow: hidden;
+        position: relative;
+        z-index: 3;
+        & > img {
+            width: 100%;
+        }
+        &_noneImage img{
+            filter: blur(10px);
+            transform: scale(1.5);
+        }
+    }
     &__avatarBlock {
-        width: 200px;
-        height: 200px;
+        position: relative;
+        z-index: 5;
+        width: 220px;
+        height: 220px;
         margin: auto;
         margin-bottom: 10px;
         animation: 0.5s cubic-bezier(0, 0, 0.1, 1.5) 1 openSites;
+        padding: 10px;
+        background-color: rgb(15, 15, 15);
+        border: $borderMain;
+        border-radius: 50%;
+        margin-top: -110px;
         & img {
             width: 100%;
             height: 100%;
