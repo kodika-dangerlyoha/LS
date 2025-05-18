@@ -99,6 +99,7 @@ function makeAP(authorName) {
     if (author) {
         avatar = author.imgLink;
         banner = author.banner_link;
+        document.querySelector('.authorPage__banner__img').classList.remove('authorPage__banner__img_noneImage');
     }
     else {
         avatar = audios.toReversed().find(elem => elem.author == authorName).imgLink;

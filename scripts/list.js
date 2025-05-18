@@ -1159,6 +1159,22 @@ let audios = [
         'imgLink':  "img/audioImg/daleko.jpg",
         'file':  "audios/BUSHIDO ZHO - далеко (большой Бушизм) (prod. by wex & heysubr).mp3",
     },
+    {
+    'id': 123,
+    'name':  "Ai bitch",
+    'author':  "D4P",
+    'add_name':  "",
+    'imgLink':  "img/audioImg/TRAPSTAR.png",
+    'file':  "audios/D4P - Ai bitch.mp3",
+    },
+    {
+    'id': 124,
+    'name':  "Karavan",
+    'author':  "D4P",
+    'add_name':  "(w/ MAYOT )",
+    'imgLink':  "img/audioImg/TRAPSTAR.png",
+    'file':  "audios/D4P, MAYOT - Karavan.mp3",
+    },
 ]
 
 let authors = [
