@@ -10,6 +10,10 @@ audios.forEach(audio => {
     addAudio(audio);
 })
 
+authors.forEach(author => {
+    add_author(author);
+})
+
 // const get_audios_author_html = (audio, n) => {
 //     return `<div class="authorPage__grid__audio music__grid__audioBlock audioBlock${audio.id}">
 //                 <img src="${audio.imgLink}" alt="">
@@ -135,6 +139,10 @@ function addAudio(audioInfo) {
     // div.innerHTML = blockSiteHTML;
     // grid.append(div);
     document.getElementById("music__grid").innerHTML += get_audio_html(audioInfo);
+}
+
+function add_author(info) {
+    document.getElementById("authors__grid").innerHTML += get_author_html(info);
 }
 
 function addMusicplayer(audioInfo, author, num) {

@@ -542,6 +542,135 @@ header {
             }
         }
     }
+    &__grid {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(3, minmax(0px, 1fr));
+    }
+    &__author {
+        position: relative;
+        // display: flex;
+        // align-items: center;
+        // justify-content: space-between;
+        padding: 10px;
+        // width: 442px;
+        // background-color: rgba(15, 15, 15, 0.6); 
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        cursor: pointer;
+        transition: $mainTransition;
+        overflow: hidden;
+        &:hover &__inner {
+            & button {
+                opacity: 1;
+            }
+            &__avatar {
+                transform: scale(1.02);
+            }
+        }
+        &:hover &__bg > div{
+            opacity: 1;
+        }
+        &:active {
+            transform: scale(.90);
+        }
+        &__inner {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &__left {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                position: relative;
+                z-index: 3;
+            }
+            &__right {
+                & > button {
+                    display: block;
+                    background: none;
+                    border: none;
+                    opacity: 0;
+                    transition: $mainTransition;
+                    padding: 10px;
+                    border-radius: 10px;
+                    width: 50px;
+                    height: 50px;
+                    position: relative;
+                    z-index: 5;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: rgba(255, 255, 255, .2);
+                    }
+                    & > img {
+                        width: 100%;
+                        filter: invert(1);
+                    }
+                }
+            }
+            &__link {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 4;
+            }
+            &__avatar {
+                width: 70px;
+                height: 70px;
+                overflow: hidden;
+                transition: $mainTransition;
+                // border-radius: 10px;
+                border-radius: 50%;
+                box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.3);
+                border: $borderMain;
+                & > img {
+                    width: 100%;
+                    // border-radius: 10px;
+                    border-radius: 50%;
+                }
+            }
+            &__name {
+                max-width: 350px;
+                font-size: 28px;
+                cursor: pointer;
+                font-family: $italicFont;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                text-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+            }
+        }
+        &__bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            & > img {
+                position: relative;
+                width: 100%;
+                z-index: 1;
+            }
+            & > div {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 2;
+                background-color: rgba(0, 0, 0, 0.3);
+                -webkit-backdrop-filter: blur(1px);
+                backdrop-filter: blur(1px);
+                opacity: 0;
+                transition: $mainTransition;
+            }
+        }
+    }
 }
 
 .music {

@@ -105,7 +105,6 @@ function playAudio(num, author) {
                 document.querySelector('#icoPlayAudio').src = "img/icons/play.png";
                 document.querySelector('#icoPlayAudio_mini').src = "img/icons/play.png";
                 playAudio_animation(false);
-                // console.log('if');
             }
             else {
                 audioFile.play();
@@ -114,13 +113,11 @@ function playAudio(num, author) {
                 document.querySelector('#icoPlayAudio').src = "img/icons/pause.png";
                 document.querySelector('#icoPlayAudio_mini').src = "img/icons/pause.png";
                 playAudio_animation(true);
-                // console.log('else');
             }
         //}
     }
     else {
         play_new_audio(num, author);
-        // console.log('else2');
     }
 }
 

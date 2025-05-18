@@ -1200,18 +1200,30 @@ let authors = [
         'id': 3,
         'name': "LILDRUGHILL",
         'imgLink': "img/authros/lildrughill.jpg",
-        'banner_link': "",
+        'banner_link': "img/authros/banners/lildrug.jpg",
     },
     {
         'id': 4,
         'name': "Kai Angel",
         'imgLink': "img/authros/kai.jpg",
-        'banner_link': "",
+        'banner_link': "img/authros/banners/kai.jpg",
     },
     {
         'id': 5,
         'name': "OBLADAET",
         'imgLink': "img/authros/obladaet.jpg",
         'banner_link': "img/authros/banners/obla.jpg",
+    },
+    {
+        'id': 6,
+        'name': "Mnogoznaal",
+        'imgLink': "img/authros/mnogoznaal.jpg",
+        'banner_link': "img/authros/banners/mnogoznaal.jpg",
+    },
+    {
+        'id': 6,
+        'name': "Beliwhatt",
+        'imgLink': "img/authros/beliwhatt.jpg",
+        'banner_link': "img/authros/banners/beliwhatt.jpg",
     },
 ]

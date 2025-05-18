@@ -37,7 +37,7 @@ const get_mini_MP_html = (audioInfo, nVolume, num, author) => {
                     <div class="mini_musicPlayer__interface__trackname txt">${audioInfo.name} <span>${audioInfo.add_name}</span> </div>
                 </div>
                 <div class="mini_musicPlayer__interface__buttons">
-                    <div class="mini_musicPlayer__interface__button" onclick="playAudio(${num}, '${playlist}')">
+                    <div class="mini_musicPlayer__interface__button" onclick="playAudio(${num}, '${author}')">
                         <img src="img/icons/play.png" alt="" id="icoPlayAudio_mini">
                     </div>
                     <div class="mini_musicPlayer__interface__button mini_musicPlayer__interface__button_rightArr" onclick="changeAudio(1, '${author}')">
@@ -55,6 +55,27 @@ const get_audio_html = (audioInfo) => {
                 <div class="music__grid__audioBlock__info">
                     <div class="music__grid__audioBlock__info__name txt">${audioInfo.name} <span>${audioInfo.add_name}</span></div>
                     <div class="music__grid__audioBlock__info__author txt">${audioInfo.author}</div>
+                </div>
+            </div>`
+};
+
+const get_author_html = (info) => {
+    return `<div class="authors__author authors__author${info.id}">
+                <div class="authors__author__bg">
+                    <img src="${info.banner_link}" alt="">
+                    <div></div>
+                </div>
+                <div class="authors__author__inner">
+                    <div class="authors__author__inner__link" onclick="openAuthor('${info.name}')"></div>
+                    <div class="authors__author__inner__left">
+                        <div class="authors__author__inner__avatar"><img src="${info.imgLink}" alt=""></div>
+                        <div class="authors__author__inner__name txt">${info.name}</div>
+                    </div>
+                    <div class="authors__author__inner__right">
+                        <button type="button" title="play" onclick="playAudio(0, '${info.name}')">
+                            <img src="img/icons/play.png" alt="">
+                        </button>
+                    </div>
                 </div>
             </div>`
 };
