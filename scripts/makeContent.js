@@ -103,12 +103,13 @@ function makeAP(authorName) {
     else {
         avatar = audios.toReversed().find(elem => elem.author == authorName).imgLink;
         banner = avatar;
-        document.querySelector('.authorPage__banner').classList.add('authorPage__banner_noneImage');
+        document.querySelector('.authorPage__banner__img').classList.add('authorPage__banner__img_noneImage');
     }
 
     document.getElementById('authorName').innerText = authorName;
     document.getElementById('authorImg').src = avatar;
     document.getElementById('author_banner').src = banner;
+    document.getElementById('author_banner_shadow').src = banner;
 }
 
 function addAudio(audioInfo) {

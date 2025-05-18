@@ -1192,4 +1192,10 @@ let authors = [
         'imgLink': "img/authros/kai.jpg",
         'banner_link': "",
     },
+    {
+        'id': 5,
+        'name': "OBLADAET",
+        'imgLink': "img/authros/obladaet.jpg",
+        'banner_link': "img/authros/banners/obla.jpg",
+    },
 ]

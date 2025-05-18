@@ -109,6 +109,12 @@
 			</div> -->
 		</div>
 		<div class="musicContainer page" id="musicBox">
+			<div class="authors">
+				<h2 class="txt" id="h2_music">Authors <button title="add_author" type="button" onclick="open_add_authors()">Add author</button></h2>
+				<div class="authors__grid" id="authors__grid">
+					
+				</div>
+			</div>
 			<!-- <div class="playLists">
 				<h2 class="txt" onclick="openPlaylists()" id="h2_playlists">Playlists</h2>
 				<div class="playLists__grid" id="playLists__grid">
@@ -155,12 +161,18 @@
 			<div class="authorPage">
 				<div class="authorPage__top">
 					<div class="authorPage__banner">
-						<img src="" alt="" id="author_banner">
+						<div class="authorPage__avatarBlock">
+							<img src="" alt="" id="authorImg">
+						</div>
+						<div class="authorPage__nameAuthor txt" id="authorName"></div>
+						<div class="authorPage__banner__img">
+							<img src="" alt="" id="author_banner">
+							<div class="authorPage__banner__bgForName"></div>
+						</div>
+						<div class="authorPage__banner__shadow">
+							<img src="" alt="" id="author_banner_shadow">
+						</div>
 					</div>
-					<div class="authorPage__avatarBlock">
-						<img src="" alt="" id="authorImg">
-					</div>
-					<div class="authorPage__nameAuthor txt" id="authorName"></div>
 				</div>
 				<div class="authorPage__grid" id="AP_grid">
 					<!-- <div class="authorPage__grid__audio">

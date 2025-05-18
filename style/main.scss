@@ -509,6 +509,41 @@ header {
     }
 }
 
+.authors {
+    box-shadow: $shadowMain;
+    border-radius: 15px;
+    margin-bottom: 50px;
+    animation: 0.5s cubic-bezier(0, 0, 0.1, 1) 1 openSitesContent;
+    & h2 {
+        // text-align: center;
+        font-size: 32px;
+        font-family: italic2;
+        margin-top: 0;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 10px;
+        & > button {
+            font-size: 22px;
+            color: rgb(180, 180, 180);
+            font-family: italic2;
+            background-color: rgba(255, 255, 255, .01);
+            border: 1px solid rgba(255, 255, 255, .05);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: .2s;
+            &:hover {
+                color: rgb(255, 255, 255);
+                border-color: rgba(255, 255, 255, .1);
+            }
+            &:active {
+                transform: scale(0.95);
+            }
+        }
+    }
+}
+
 .music {
     // background-color: rgba(0, 0, 0, 0.2); --
     // backdrop-filter: blur(30px); --
@@ -822,33 +857,70 @@ header {
     }
     &__banner {
         width: 1366px;
-        height: 300px;
-        border-radius: 15px;
+        height: 350px;
         border: $borderMain;
-        overflow: hidden;
         position: relative;
+        border-radius: 15px;
         z-index: 3;
-        & > img {
-            width: 100%;
+        padding-left: 40px;
+        padding-bottom: 20px;
+        display: flex;
+        align-items: end;
+        &__img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            z-index: 2;
+            & > img {
+                width: 100%;
+            }
+            &_noneImage img{
+                filter: blur(10px);
+                transform: scale(1.5);
+            }
         }
-        &_noneImage img{
-            filter: blur(10px);
-            transform: scale(1.5);
+        &__shadow {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            & > img {
+                width: 100%;
+                height: 100%;
+                filter: blur(300px);
+            }
+        }
+        &__bgForName {
+            position: absolute;
+            left: -400px;
+            bottom: -100px;
+            z-index: 3;
+            width: 800px;
+            height: 200px;
+            background-color: rgba(0, 0, 0, .5);
+            filter: blur(30px);
+            display: none;
         }
     }
     &__avatarBlock {
         position: relative;
         z-index: 5;
-        width: 220px;
-        height: 220px;
-        margin: auto;
-        margin-bottom: 10px;
+        width: 200px;
+        height: 200px;
+        // margin: auto;
+        // margin-bottom: 10px;
         animation: 0.5s cubic-bezier(0, 0, 0.1, 1.5) 1 openSites;
-        padding: 10px;
-        background-color: rgb(15, 15, 15);
         border: $borderMain;
         border-radius: 50%;
-        margin-top: -110px;
+        box-shadow: 0 2px 10px 0px rgba(0, 0, 0, 1);
+        // margin-top: -110px;
+        display: none;
         & img {
             width: 100%;
             height: 100%;
@@ -857,9 +929,12 @@ header {
     }
     &__nameAuthor {
         font-family: $italicFont;
-        font-size: 32px;
+        font-size: 92px;
         text-align: center;
         animation: 1s cubic-bezier(0, 0, 0.1, 1.5) 1 openText;
+        position: relative;
+        z-index: 5;
+        text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
     }
     &__grid {
         display: grid;
