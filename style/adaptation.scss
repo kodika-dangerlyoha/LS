@@ -172,7 +172,10 @@ $italicFont: italic2;
             padding-bottom: 10px;
         }
         &__nameAuthor {
-            font-size: 52px;
+            font-size: 42px;
+        }
+        &__grid {
+            gap: 10px;
         }
     }
     
@@ -208,24 +211,24 @@ $italicFont: italic2;
         }
         &__imgAlbum {
             border-radius: 15px;
-            width: 250px;
+            width: 270px;
             margin-bottom: 15px;
             box-shadow: 0 0 60px -20px rgba(0, 0, 0, 0);
             cursor: pointer;
             transition: $mainTransition;
             animation: 0.5s cubic-bezier(0, 0, 0.1, 1.5) 1 openSites;
             &:hover {
-                box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.5);
-                transform: scale(0.98);
-                filter: grayscale(1);
+                box-shadow: 0 0 60px -20px rgba(0, 0, 0, 0);
+                transform: scale(1);
+                filter: grayscale(0);
             }
             &:active {
-                transform: scale(0.7);
+                transform: scale(.7);
             }
         }
         &__nameAudio {
             text-align: center;
-            font-size: 26px;
+            font-size: 22px;
             font-family: $italicFont;
             // animation: .8s cubic-bezier(0, 0, 0.1, 1.5) 1 openText_2;
             animation: 1s cubic-bezier(0, 0, 0.1, 1.5) 1 openText;
@@ -240,7 +243,7 @@ $italicFont: italic2;
         }
         &__author {
             text-align: center;
-            font-size: 26px;
+            font-size: 22px;
             font-family: $italicFont;
             color: rgb(200, 200, 200);
             // animation: .8s cubic-bezier(0, 0, 0.1, 1.5) 1 openText_2;
@@ -257,7 +260,7 @@ $italicFont: italic2;
             }
         }
         &__interface {
-            margin-top: 20px;
+            margin-top: 25px;
             height: 32px;
             opacity: 1;
             transform: translateY(0);
@@ -272,16 +275,16 @@ $italicFont: italic2;
                 align-items: center;
                 & img {
                     border-radius: 0px;
-                    width: 32px;
-                    height: 32px;
+                    width: 28px;
+                    height: 28px;
                     filter: invert(1);
                     transition: 0.1s;
                 }
                 &_rightArr {
                     & img {
                         border-radius: 0px;
-                        width: 28px;
-                        height: 28px;
+                        width: 24px;
+                        height: 24px;
                         filter: invert(1);
                         transition: 0.1s;
                     }
@@ -290,29 +293,29 @@ $italicFont: italic2;
                     transform: rotate(180deg);
                     & img {
                         border-radius: 0px;
-                        width: 28px;
-                        height: 28px;
+                        width: 24px;
+                        height: 24px;
                         filter: invert(1);
                         transition: 0.1s;
                     }
                 }
                 &:hover img{
-                    transform: scale(0.95);
+                    transform: scale(1);
                 }
                 &:active img{
-                    transform: scale(0.2);
+                    transform: scale(1);
                 }
             }
         }
         &__rangeBox {
-            margin-top: 15px;
+            margin-top: 10px;
             // transition: $mainTransition;
             transition: .3s cubic-bezier(0, 0, 0, 0.75);
             opacity: .5;
             transform: translateY(0);
             transition-delay: .15s;
             input[type = range] {
-                height: 7px;
+                height: 6px;
                 border-radius: 2px;
                 width: 100%;
             }
@@ -339,17 +342,111 @@ $italicFont: italic2;
 // }
 
 @media screen and (max-width: 480px) {
+    .inner {
+        width: 340px;
+    }
+
+    .mini_musicPlayer {
+        transform: translateX(-23px);
+        &:hover {
+            transform: translateX(-23px);
+        }
+        &__imgBlock {
+            animation: mini_musicPlayer_img .4s ease-out 1;
+            &:hover img{
+                transform: scale(1);
+            }
+            &:active img{
+                transform: scale(0.7);
+            }
+        }
+        &__interface {
+            // &__title {
+            //     display: flex;
+            //     & > span {
+            //         display: block;
+            //         font-size: 20px;
+            //         margin-right: 5px;
+            //         margin-left: 5px;
+            //         color: rgb(255, 255, 255);
+            //         font-family: $italicFont;
+            //         cursor: default;
+            //     }
+            // }
+            &__button {
+                overflow: visible;
+                cursor: pointer;
+                border-radius: 0px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                & img {
+                    border-radius: 0px;
+                    width: 22px;
+                    height: 22px;
+                    filter: invert(1);
+                    transition: 0.1s;
+                }
+                &_rightArr {
+                    opacity: .8;
+                    & img {
+                        border-radius: 0px;
+                        width: 18px;
+                        height: 18px;
+                        filter: invert(1);
+                        transition: 0.1s;
+                    }
+                }
+                // &_leftArr {
+                //     transform: rotate(180deg);
+                //     & img {
+                //         border-radius: 0px;
+                //         width: 20px;
+                //         height: 20px;
+                //         filter: invert(1);
+                //         transition: 0.1s;
+                //     }
+                // }
+                &:hover img{
+                    transform: scale(0.95);
+                }
+                &:active img{
+                    transform: scale(0.2);
+                }
+            }
+            &__trackname {
+                font-size: 18px;
+            }
+            &__author {
+                font-size: 18px;
+                &:hover {
+                    color: rgb(230, 230, 230);
+                }
+            }
+        }
+    }
+
+    .music__grid {
+        grid-gap: 10px;
+        &__audioBlock {
+            &:hover {
+                background-color: rgba(15, 15, 15, 0.6); 
+            }
+            &:hover img{
+                transform: scale(1);
+            }
+            &:active img{
+                transform: scale(1);
+            }
+        }
+    }
+    
     .container {
         display: none;
     }
+
     header .navs {
         display: none;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .inner {
-        width: 340px;
     }
 }
 
