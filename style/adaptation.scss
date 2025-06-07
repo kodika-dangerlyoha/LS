@@ -196,6 +196,136 @@ $italicFont: italic2;
         grid-template-columns: repeat(1, minmax(0px, 1fr));
         grid-gap: 15px;
     }
+
+    .musicPlayer {
+        &__bg:hover &__rangeBox{
+            opacity: .5;
+            transform: translateY(0);
+        }
+        &__bg:hover &__interface{
+            opacity: 1;
+            transform: translateY(0);
+        }
+        &__imgAlbum {
+            border-radius: 15px;
+            width: 250px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 60px -20px rgba(0, 0, 0, 0);
+            cursor: pointer;
+            transition: $mainTransition;
+            animation: 0.5s cubic-bezier(0, 0, 0.1, 1.5) 1 openSites;
+            &:hover {
+                box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.5);
+                transform: scale(0.98);
+                filter: grayscale(1);
+            }
+            &:active {
+                transform: scale(0.7);
+            }
+        }
+        &__nameAudio {
+            text-align: center;
+            font-size: 26px;
+            font-family: $italicFont;
+            // animation: .8s cubic-bezier(0, 0, 0.1, 1.5) 1 openText_2;
+            animation: 1s cubic-bezier(0, 0, 0.1, 1.5) 1 openText;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 450px;
+            & > span {
+                color: rgb(200, 200, 200);
+                font-size: 18px;
+            }
+        }
+        &__author {
+            text-align: center;
+            font-size: 26px;
+            font-family: $italicFont;
+            color: rgb(200, 200, 200);
+            // animation: .8s cubic-bezier(0, 0, 0.1, 1.5) 1 openText_2;
+            animation: 1s cubic-bezier(0, 0, 0.1, 1.5) 1 openText;
+            // animation-delay: .1s;
+            cursor: pointer;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 450px;
+            transition: $mainTransition;
+            &:hover {
+                color: rgb(255, 255, 255);
+            }
+        }
+        &__interface {
+            margin-top: 20px;
+            height: 32px;
+            opacity: 1;
+            transform: translateY(0);
+            &__button {
+                overflow: visible;
+                cursor: pointer;
+                border-radius: 0px;
+                margin-left: 10px;
+                margin-right: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                & img {
+                    border-radius: 0px;
+                    width: 32px;
+                    height: 32px;
+                    filter: invert(1);
+                    transition: 0.1s;
+                }
+                &_rightArr {
+                    & img {
+                        border-radius: 0px;
+                        width: 28px;
+                        height: 28px;
+                        filter: invert(1);
+                        transition: 0.1s;
+                    }
+                }
+                &_leftArr {
+                    transform: rotate(180deg);
+                    & img {
+                        border-radius: 0px;
+                        width: 28px;
+                        height: 28px;
+                        filter: invert(1);
+                        transition: 0.1s;
+                    }
+                }
+                &:hover img{
+                    transform: scale(0.95);
+                }
+                &:active img{
+                    transform: scale(0.2);
+                }
+            }
+        }
+        &__rangeBox {
+            margin-top: 15px;
+            // transition: $mainTransition;
+            transition: .3s cubic-bezier(0, 0, 0, 0.75);
+            opacity: .5;
+            transform: translateY(0);
+            transition-delay: .15s;
+            input[type = range] {
+                height: 7px;
+                border-radius: 2px;
+                width: 100%;
+            }
+        }
+
+        #block_imgAlbum {
+            display: flex;
+            justify-content: center;
+            transform: scale(0.98);
+            transition: .2s;
+            filter: grayscale(1);
+        }
+    }
 }
 
 // @media screen and (max-width: 760px) {
@@ -203,6 +333,21 @@ $italicFont: italic2;
 //         width: 400px;
 //     }
 // }
+
+@media screen and (max-width: 480px) {
+    .container {
+        display: none;
+    }
+    header .navs {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .inner {
+        width: 340px;
+    }
+}
 
 // -------------------------------------------- old
 

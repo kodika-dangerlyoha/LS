@@ -159,5 +159,11 @@ setTimeout(function() {
     document.querySelector('#forLoading').style.display = "none";
 }, 1600)
 
+if (window.innerWidth < 481) {
+    openPage(1, 'musicBox')
+} 
 
-openPage(0, 'containerGrid');
+else {
+    openPage(0, 'containerGrid');
+}
+
