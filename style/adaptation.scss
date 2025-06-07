@@ -326,6 +326,10 @@ $italicFont: italic2;
             filter: grayscale(1);
         }
     }
+
+    h2#h2_music > button {
+        display: none;
+    }
 }
 
 // @media screen and (max-width: 760px) {
