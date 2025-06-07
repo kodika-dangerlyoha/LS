@@ -101,105 +101,109 @@
 	</div>
 	<div class="cursorLight cursorLight_hidden" id="cursor_light"></div>
 	<div class="mainBlock flex-center">
-		<div class="container page" id="containerGrid">
-			<!-- <div class="container__site">
-				<img src="img/VK Logo.png" alt="">
-				<div class="container__site__nameSite txt">VK Music</div>
-				<div class="container__site__forHover"></div>
-			</div> -->
-		</div>
-		<div class="musicContainer page" id="musicBox">
-			<div class="authors">
-				<h2 class="txt" id="h2_music">Authors <button title="add_author" type="button" onclick="open_add_authors()">Add author</button></h2>
-				<div class="authors__grid" id="authors__grid">
-					<!-- <div class="authors__author">
-						<div class="authors__author__bg">
-							<img src="img/authros/banners/kizaru.jpg" alt="">
-							<div></div>
-						</div>
-						<div class="authors__author__inner">
-							<div class="authors__author__inner__link" onclick="openAuthor('kizaru')"></div>
-							<div class="authors__author__inner__left">
-								<div class="authors__author__inner__avatar"><img src="img/authros/kizaru.jpg" alt=""></div>
-								<div class="authors__author__inner__name txt">kizaru</div>
+		<div class="inner">
+			<div class="container page" id="containerGrid">
+				<!-- <div class="container__site">
+					<img src="img/VK Logo.png" alt="">
+					<div class="container__site__nameSite txt">VK Music</div>
+					<div class="container__site__forHover"></div>
+				</div> -->
+			</div>
+			<div class="musicContainer page" id="musicBox">
+				<div class="authors">
+					<h2 class="txt" id="h2_music">Authors <button title="add_author" type="button" onclick="open_add_authors()">Add author</button></h2>
+					<div class="authors__grid" id="authors__grid">
+						<!-- <div class="authors__author">
+							<div class="authors__author__bg">
+								<img src="img/authros/banners/kizaru.jpg" alt="">
+								<div></div>
 							</div>
-							<div class="authors__author__inner__right">
-								<button type="button" title="play" onclick="playAudio(0, 'kizaru')">
-									<img src="img/icons/play.png" alt="">
-								</button>
+							<div class="authors__author__inner">
+								<div class="authors__author__inner__link" onclick="openAuthor('kizaru')"></div>
+								<div class="authors__author__inner__left">
+									<div class="authors__author__inner__avatar"><img src="img/authros/kizaru.jpg" alt=""></div>
+									<div class="authors__author__inner__name txt">kizaru</div>
+								</div>
+								<div class="authors__author__inner__right">
+									<button type="button" title="play" onclick="playAudio(0, 'kizaru')">
+										<img src="img/icons/play.png" alt="">
+									</button>
+								</div>
 							</div>
-						</div>
-					</div> -->
+						</div> -->
+					</div>
+				</div>
+				<!-- <div class="playLists">
+					<h2 class="txt" onclick="openPlaylists()" id="h2_playlists">Playlists</h2>
+					<div class="playLists__grid" id="playLists__grid">
+					</div>
+				</div> -->
+				<div class="music">
+					<h2 class="txt" id="h2_music">Songs <button title="add_song" type="button" onclick="open_add_song()">Add song</button></h2>
+					<div class="music__grid" id="music__grid">
+						<!-- <div class="music__grid__audioBlock">
+							<div class="music__grid__audioBlock__forClick" onclick="playAudio()"></div>
+							<img src="img/audioImg/chainsaw.jpg" alt="">
+							<div class="music__grid__audioBlock__info">
+								<div class="music__grid__audioBlock__info__name txt">CHAINSAW</div>
+								<div class="music__grid__audioBlock__info__author txt">9mice</div>
+							</div>
+						</div> -->
+					</div>
 				</div>
 			</div>
-			<!-- <div class="playLists">
-				<h2 class="txt" onclick="openPlaylists()" id="h2_playlists">Playlists</h2>
-				<div class="playLists__grid" id="playLists__grid">
-				</div>
-			</div> -->
-			<div class="music">
-				<h2 class="txt" id="h2_music">Songs <button title="add_song" type="button" onclick="open_add_song()">Add song</button></h2>
-				<div class="music__grid" id="music__grid">
-					<!-- <div class="music__grid__audioBlock">
-						<div class="music__grid__audioBlock__forClick" onclick="playAudio()"></div>
-						<img src="img/audioImg/chainsaw.jpg" alt="">
-						<div class="music__grid__audioBlock__info">
-							<div class="music__grid__audioBlock__info__name txt">CHAINSAW</div>
-							<div class="music__grid__audioBlock__info__author txt">9mice</div>
+			<div class="containerMP page" id="musicPlayer">
+				<!-- <div class="musicPlayer">
+					<img src="img/audioImg/chainsaw.jpg" alt="">
+					<div class="musicPlayer__bg">
+						<div class="musicPlayer__nameAudio txt">chaisaw</div>
+						<div class="musicPlayer__author txt">9mice</div>
+						<div class="musicPlayer__interface">
+							<div class="musicPlayer__interface__button musicPlayer__interface__button_leftArr" onclick="nextAudio(-1)">
+								<img src="img/icons/rArr.png" alt="">
+							</div>
+							<div class="musicPlayer__interface__button" onclick="playAudio(1)">
+								<img src="img/icons/play.png" alt="">
+							</div>
+							<div class="musicPlayer__interface__button rightArr" onclick="nextAudio(1)">
+								<img src="img/icons/rArr.png" alt="">
+							</div>
 						</div>
-					</div> -->
-				</div>
+						<div class="rangeBox">
+							<input type="range" id="rangeTrack">
+						</div>
+					</div>
+				</div> -->
 			</div>
-		</div>
-		<div class="containerMP page" id="musicPlayer">
-			<!-- <div class="musicPlayer">
-				<img src="img/audioImg/chainsaw.jpg" alt="">
-				<div class="musicPlayer__bg">
-					<div class="musicPlayer__nameAudio txt">chaisaw</div>
-					<div class="musicPlayer__author txt">9mice</div>
-					<div class="musicPlayer__interface">
-						<div class="musicPlayer__interface__button musicPlayer__interface__button_leftArr" onclick="nextAudio(-1)">
-							<img src="img/icons/rArr.png" alt="">
+			<div class="containerAP page" id="authorPlaylist">
+				<div class="inner">
+					<div class="authorPage">
+						<div class="authorPage__top">
+							<div class="authorPage__banner">
+								<div class="authorPage__avatarBlock">
+									<img src="" alt="" id="authorImg">
+								</div>
+								<div class="authorPage__nameAuthor txt" id="authorName"></div>
+								<div class="authorPage__banner__img">
+									<img src="" alt="" id="author_banner">
+									<div class="authorPage__banner__bgForName"></div>
+								</div>
+								<div class="authorPage__banner__shadow">
+									<img src="" alt="" id="author_banner_shadow">
+								</div>
+							</div>
 						</div>
-						<div class="musicPlayer__interface__button" onclick="playAudio(1)">
-							<img src="img/icons/play.png" alt="">
-						</div>
-						<div class="musicPlayer__interface__button rightArr" onclick="nextAudio(1)">
-							<img src="img/icons/rArr.png" alt="">
-						</div>
-					</div>
-					<div class="rangeBox">
-						<input type="range" id="rangeTrack">
-					</div>
-				</div>
-			</div> -->
-		</div>
-		<div class="containerAP page" id="authorPlaylist">
-			<div class="authorPage">
-				<div class="authorPage__top">
-					<div class="authorPage__banner">
-						<div class="authorPage__avatarBlock">
-							<img src="" alt="" id="authorImg">
-						</div>
-						<div class="authorPage__nameAuthor txt" id="authorName"></div>
-						<div class="authorPage__banner__img">
-							<img src="" alt="" id="author_banner">
-							<div class="authorPage__banner__bgForName"></div>
-						</div>
-						<div class="authorPage__banner__shadow">
-							<img src="" alt="" id="author_banner_shadow">
+						<div class="authorPage__grid" id="AP_grid">
+							<!-- <div class="authorPage__grid__audio">
+								<img src="img/audioImg/clubbeztancev.jpg" alt="">
+								<div class="authorPage__grid__audio__forClick" onclick="playAudio()"></div>
+								<div class="authorPage__grid__audio__info">
+									<div class="authorPage__grid__audio__info__name txt"></div>
+									<div class="authorPage__grid__audio__info__author txt"></div>
+								</div>
+							</div> -->
 						</div>
 					</div>
-				</div>
-				<div class="authorPage__grid" id="AP_grid">
-					<!-- <div class="authorPage__grid__audio">
-						<img src="img/audioImg/clubbeztancev.jpg" alt="">
-						<div class="authorPage__grid__audio__forClick" onclick="playAudio()"></div>
-						<div class="authorPage__grid__audio__info">
-							<div class="authorPage__grid__audio__info__name txt"></div>
-							<div class="authorPage__grid__audio__info__author txt"></div>
-						</div>
-					</div> -->
 				</div>
 			</div>
 		</div>

@@ -1,10 +1,14 @@
-@media screen and (max-width: 1240px) {
-    .playLists__grid__playlist__img {
-        width: 150px;
+/* @media screen and (max-width: 1466px) {
+    .inner {
+        width: 1200px;
     }
-    .playLists__grid__playlist__name {
-        font-size: 40px;
+}
+
+@media screen and (max-width: 1284px) {
+    .inner {
+        width: 1000px;
     }
+    
 }
 
 @media screen and (max-width: 1240px) {
@@ -32,4 +36,4 @@
     .container {
         grid-template-columns: repeat(2, minmax(0px, 1fr));
     }
-}
+} */

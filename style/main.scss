@@ -9,6 +9,11 @@ $mainTransition: 0.2s;
 $mainFont: laParis;
 $italicFont: italic2;
 
+.inner {
+    width: 1350px;
+    margin: auto;
+}
+
 .audioBlock {
     position: relative;
     display: flex;
@@ -38,10 +43,11 @@ $italicFont: italic2;
         transition: $mainTransition;
     }
     &__info {
+        width: 100%;
         position: relative;
         z-index: 5;
         &__name {
-            max-width: 350px;
+            max-width: calc(100% - 20px);
             font-size: 18px;
             cursor: pointer;
             font-family: $italicFont;
@@ -60,6 +66,10 @@ $italicFont: italic2;
             font-family: $italicFont;
             cursor: pointer;
             transition: $mainTransition;
+            max-width: calc(100% - 20px);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             &:hover {
                 color: rgb(255, 255, 255);
             }
@@ -184,6 +194,9 @@ header {
             }
             &:hover {
                 color: rgba(255, 255, 255, 1);
+            }
+            &:last-child {
+                display: none;
             }
         }
     }
@@ -367,6 +380,7 @@ header {
         padding: 40px;
         // background-color: rgba(0, 0, 0, 0.15); 
         background-color: rgba(15, 15, 15, 0.6); 
+        -webkit-backdrop-filter: blur(30px);
         backdrop-filter: blur(30px);
         border: $borderMain;
         // box-shadow: $shadowMain;
@@ -719,7 +733,7 @@ header {
             display: flex;
             align-items: center;
             padding: 10px;
-            width: 442px;
+            // width: 442px;
             // background-color: rgba(255, 255, 255, 0.01);
             background-color: rgba(15, 15, 15, 0.6); 
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -759,16 +773,17 @@ header {
                 transition: $mainTransition;
             }
             &__info {
+                width: 100%;
                 position: relative;
                 z-index: 5;
                 &__name {
-                    max-width: 350px;
-                    font-size: 18px;
-                    cursor: pointer;
-                    font-family: $italicFont;
+                    max-width: calc(100% - 20px);
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
+                    font-size: 18px;
+                    cursor: pointer;
+                    font-family: $italicFont;
                     & > span {
                         color: rgb(200, 200, 200);
                         font-size: 14px;
@@ -777,7 +792,7 @@ header {
                 &__author {
                     font-size: 18px;
                     color: rgb(200, 200, 200);
-                    max-width: 350px;
+                    max-width: calc(100% - 20px);
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
@@ -977,7 +992,7 @@ header {
 }
 
 .authorPage {
-    margin-top: 92px;
+    margin-top: 0px;
     animation: 0.5s cubic-bezier(0, 0, 0.1, 1) 1 openSitesContent;
     &__top {
         display: flex;
@@ -985,7 +1000,8 @@ header {
         align-items: center;
     }
     &__banner {
-        width: 1366px;
+        width: 100%;
+        max-width: 100%;
         height: 350px;
         border: $borderMain;
         position: relative;
@@ -1006,6 +1022,8 @@ header {
             z-index: 2;
             & > img {
                 width: 100%;
+                // min-width: 100%;
+                // min-height: 100%;
             }
             &_noneImage img{
                 filter: blur(10px);
@@ -1070,7 +1088,7 @@ header {
         grid-gap: 20px;
         grid-template-columns: repeat(3, minmax(0px, 1fr));
         margin-top: 50px;
-        min-width: 1000px;
+        // min-width: 1000px;
         // padding: 10px; --
         // background-color: rgba(0, 0, 0, 0.2); --
         // backdrop-filter: blur(30px); --
