@@ -1,0 +1,237 @@
+.txt {
+	font-family: sans-serif;
+	color: white;
+	cursor: default;
+}
+
+body{
+	background-color: black;
+	margin: 0;
+}
+
+a{
+	text-decoration: none;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+div {
+	box-sizing: border-box;
+}
+
+.flex-center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.absolute-zero{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.fixed-zero{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.forRes{
+	position: fixed;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+
+	background: rgba(0, 0, 0, 0);
+	backdrop-filter: blur(0px);
+	display: none;
+	z-index: 9999;
+
+	transition: 1s;
+}
+
+$tf-main: cubic-bezier(0.3, 0.8, 0.3, 2.3);
+$clr-blue_light_glassShadow: rgba(255, 255, 255, 0.7);
+$shadow_out: 0 5px 10px -2px rgba(0, 0, 0, .2);
+// $shadow_out: 0 5px 15px -2px rgba(0, 0, 0, .2);
+$shadow_border: inset 0 0 0 1px rgba(255, 255, 255, .2);
+$shadow_light: inset -1px 0 0 0 rgba(255, 255, 255, .25);
+
+@mixin style-glass {
+    box-shadow: inset 0 -20px 20px -20px  rgba(255, 255, 255, .4),
+    inset 0 30px 30px -30px  rgba(0, 0, 0, .1),
+    $shadow_out,  
+    // inset 0 0 0 1px rgba(40, 40, 40, .8), 
+    inset -1px 0 0 0 rgba(57, 68, 78, 0.5), 
+    inset 1px 0 0 0 rgba(57, 68, 78, 0.5), 
+    inset 0 1px 0 0 rgba(255, 255, 255, .5),
+    inset 0 -1px 0 0 rgba(255, 255, 255, .5);  
+    // border: 1px solid rgba(82, 98, 112, 0.5);
+    border: 1px solid rgba(40, 40, 40, .7);
+	// filter: brightness();
+	backdrop-filter: brightness(2);
+    // background-color: rgba(255, 255, 255, .1);
+}
+
+@mixin style-glass_game {
+    box-shadow:$shadow_out,  
+    inset -1px 0 0 0 rgba(82, 98, 112, 0.5), 
+    inset 1px 0 0 0 rgba(82, 98, 112, 0.5), 
+    inset 0 1px 0 0 rgba(255, 255, 255, .5), 
+    inset 0 -1px 0 0 rgba(255, 255, 255, .5);  
+    border: 1px solid rgba(40, 40, 40, .7);
+}
+
+@mixin style-glass_banner {
+    box-shadow:$shadow_out,  
+    inset -1px 0 0 0 rgba(82, 98, 112, 0.5), 
+    inset 1px 0 0 0 rgba(82, 98, 112, 0.5), 
+    inset 0 1px 0 0 rgba(255, 255, 255, .5), 
+    inset 0 -1px 0 0 rgba(255, 255, 255, .5);  
+    border: 1px solid rgba(40, 40, 40, .7);
+}
+
+@mixin style-glass_hover_style {
+    box-shadow: inset 0px -30px 30px -30px $clr-blue_light_glassShadow, 
+    $shadow_out, 
+    inset -1px 0 0 0 rgba(82, 98, 112, 0.5), 
+    inset 1px 0 0 0 rgba(82, 98, 112, 0.5), 
+    inset 0 1px 0 0 $clr-blue_light_glassShadow, 
+    inset 0 -1px 0 0 $clr-blue_light_glassShadow;
+    border: 1px solid $clr-blue_light_glassShadow;
+}
+
+@mixin style-glass_hover {
+    @include style-glass;
+	transition-timing-function: $tf-main;
+    @media (hover: hover) {
+        &:hover {
+            @include style-glass_hover_style;
+			transform: scale(1.03);
+        }
+		&:active {
+			transform: scale(.95);
+		}
+    }
+}
+
+
+// ~ Glass
+// $tf-main: cubic-bezier(0.3, 0.8, 0.3, 2.3);
+// $clr-blue_light_glassShadow: rgba(1, 162, 255, .7);
+// // $shadow_out: 0 5px 10px -2px rgba(0, 0, 0, .2);
+// $shadow_out: 0 5px 15px -2px rgba(0, 0, 0, .2);
+// $shadow_border: inset 0 0 0 1px rgba(255, 255, 255, .2);
+// $shadow_light: inset -1px 0 0 0 rgba(255, 255, 255, .25);
+
+// // @mixin style-glass {
+// //     box-shadow: inset 0 -20px 20px -20px  rgba(255, 255, 255, .4),
+// //     inset 0 30px 30px -30px  rgba(0, 0, 0, .1),
+// //     $shadow_out,  
+// //     inset -1px 0 0 0 rgba(57, 68, 78, 0.5), 
+// //     inset 1px 0 0 0 rgba(57, 68, 78, 0.5), 
+// //     inset 0 1px 0 0 rgba(255, 255, 255, .5),
+// //     inset 0 -1px 0 0 rgba(255, 255, 255, .5);  
+// //     border: 1px solid rgba(40, 40, 40, .7);
+// // }
+
+// // @mixin style-glass {
+// //     box-shadow: inset -20px 20px 20px -20px  rgba(255, 255, 255, .3), 
+// //     // inset 0 0 0 1px rgba(40, 40, 40, .8), 
+// //     inset 1px 1px 0 0 rgba(82, 98, 112, 0.5), 
+// //     $shadow_out,
+// //     inset -1px -1px 0 0 rgba(82, 98, 112, 0.5), 
+// //     inset 1px -1px 0 0 rgba(255, 255, 255, .5), 
+// //     inset -1px 1px 0 0 rgba(255, 255, 255, .5);  
+// //     // border: 1px solid rgba(82, 98, 112, 0.5);
+// //     border: 1px solid rgba(40, 40, 40, .7);
+// // }
+
+// @mixin style-glass {
+//     box-shadow: inset -20px 20px 20px -20px  rgba(255, 255, 255, .15), 
+//     // inset 0 0 0 1px rgba(40, 40, 40, .8), 
+//     $shadow_out,
+//     inset 1px 1px 0 0px rgba(82, 98, 112, 0.75), 
+//     inset -1px -1px 0 0px rgba(82, 98, 112, 0.75), 
+//     inset 1px -1px 0 0px rgba(255, 255, 255, .9), 
+//     inset -1px 1px 0 0px rgba(255, 255, 255, .9),
+//     0px 0px 0px 1px rgba(40, 40, 40, .7);
+//     // border: 1px solid rgba(82, 98, 112, 0.5);
+//     // border: 1px solid rgba(40, 40, 40, .7);
+// }
+
+// @mixin style-glass_hover_style {
+//     // box-shadow: inset 0px -30px 30px -30px $clr-blue_light_glassShadow, 
+//     // $shadow_out, 
+//     // inset -1px 0 0 0 rgba(82, 98, 112, 0.5), 
+//     // inset 1px 0 0 0 rgba(82, 98, 112, 0.5), 
+//     // inset 0 1px 0 0 $clr-blue_light_glassShadow, 
+//     // inset 0 -1px 0 0 $clr-blue_light_glassShadow;
+//     // border: 1px solid $clr-blue_light_glassShadow;
+//     @include style-glass;
+//     transition: .2s;
+//     transition-timing-function: $tf-main;
+// }
+
+// // @mixin style-glass_hover {
+// //     transition: .2s;
+// //     transition-timing-function: $tf-main;
+// //     @include style-glass;
+// //     &:hover {
+// //         box-shadow: inset -20px 20px 20px -20px  rgba(255, 255, 255, .5), 
+// //         inset 1px 1px 0 0 rgba(82, 98, 112, 0.5), 
+// //         $shadow_out,
+// //         inset -1px -1px 0 0 rgba(82, 98, 112, 0.5), 
+// //         inset 1px -1px 0 0 rgba(255, 255, 255, .7), 
+// //         inset -1px 1px 0 0 rgba(255, 255, 255, .7);  
+// //         border: 1px solid rgba(40, 40, 40, .7);
+// //         background-color: rgba(255, 255, 255, .05);
+// //         transform: scale(1.12);
+// //     }
+// // }
+
+// @mixin style-glass_hover {
+//     transition: .2s;
+//     transition-timing-function: $tf-main;
+//     @include style-glass;
+//     &:hover {
+//         box-shadow: inset -20px 20px 20px -20px  rgba(255, 255, 255, .35), 
+//         // inset 0 0 0 1px rgba(40, 40, 40, .8), 
+//         $shadow_out,
+//         inset 1px 1px 0 0 rgba(82, 98, 112, 0.6), 
+//         inset -1px -1px 0 0 rgba(82, 98, 112, 0.6), 
+//         inset 1px -1px 0 0 rgba(255, 255, 255, 1), 
+//         inset -1px 1px 0 0 rgba(255, 255, 255, 1),
+//         0px 0px 0px 1px rgba(40, 40, 40, .7);  
+//         // border: 1px solid rgba(82, 98, 112, 0.5);
+//         // border: 1px solid rgba(40, 40, 40, .7);
+//         transform: scale(1.12);
+//     }
+// }
+
+// @mixin style-glass_click {
+//     @include style-glass_hover;
+//     &:active {
+//         transform: scale(.98);
+//     }
+// }
+
+// // @mixin style-glass_active {
+// //     box-shadow: inset 0px -20px 40px -10px $clr-blue_light_glassShadow, $shadow_out, inset 0 0 0 1px $clr-blue_light;
+// // }
+
+// @mixin style-glass_active {
+//     box-shadow: inset 0px -60px 60px -60px $clr-blue_light_glassShadow, 
+//     $shadow_out, 
+//     inset -1px 0 0 0 rgba(82, 98, 112, 0.5), 
+//     inset 1px 0 0 0 rgba(82, 98, 112, 0.5), 
+//     inset 0 1px 0 0 $clr-blue_light_glassShadow, 
+//     inset 0 -1px 0 0 $clr-blue_light_glassShadow;
+//     border: 1px solid $clr-blue_light_glassShadow;
+// }
