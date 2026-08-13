@@ -1,4 +1,4 @@
-let gameList = [
+let def_sites = [
     {
         'id': 0,
         'name': "VK Music",
@@ -8,10 +8,10 @@ let gameList = [
     },
     {
         'id': 1,
-        'name': "Lis-Skins",
-        'imgLink': "img/lis.svg",
-        'link': "https://lis-skins.ru/",
-        'color': "#ff7200",
+        'name': "VK Video",
+        'imgLink': "img/VK_Video.svg.webp",
+        'link': "https://vkvideo.ru/",
+        'color': "#0077ff",
     },
     {
         'id': 3,
@@ -215,6 +215,13 @@ let gameList = [
         'imgLink': "img/DeepSeek_logo.svg",
         'link': "https://chat.deepseek.com/",
         'color': "#4d6bfe",
+    },
+    {
+        'id': 32,
+        'name': "Lis-Skins",
+        'imgLink': "img/lis.svg",
+        'link': "https://lis-skins.ru/",
+        'color': "#ff7200",
     },
 ]
 

@@ -1,5 +1,5 @@
-gameList.forEach(site => {
-    addGame(site);
+sites.forEach(site => {
+    addSite(site);
 })
 
 // playlists.forEach(playlist => {
@@ -47,7 +47,7 @@ authors.forEach(author => {
 //     grid.append(a);
 // }
 
-function addGame(siteInfo) {
+function addSite(siteInfo) {
     if (siteInfo.imgLink == '') {
         siteInfo.imgLink = "img/any.png";
         siteInfo.color = "#00a1f5";
@@ -55,13 +55,13 @@ function addGame(siteInfo) {
 
     let a = `
             <a href="${siteInfo.link}" class="container__site" target="_blank" onmouseover="show_cursor_light('${siteInfo.color}')" onmouseout="hidden_cursor_light()">
-            <div class="container__site__forImg flex-center"><img class="imgSites" src="${siteInfo.imgLink}" alt=""></div> 
-            <div class="container__site__nameSite txt">${siteInfo.name}</div>
-            <div class="container__site__forHover" style="background-color: ${siteInfo.color};"></div>
+                <div class="container__site__forImg flex-center"><img class="imgSites" src="${siteInfo.imgLink}" alt=""></div> 
+                <div class="container__site__nameSite txt">${siteInfo.name}</div>
+                <div class="container__site__forHover" style="background-color: ${siteInfo.color};"></div>
             </a>
             `;
     // let grid = document.getElementById("containerGrid");
-    document.getElementById("containerGrid").innerHTML += a;
+    document.getElementById("sites").innerHTML += a;
 }
 
 function addPlaylists(playlistInfo) {
@@ -87,7 +87,7 @@ function makeAP(authorName) {
     });
 
     document.querySelector('#AP_grid').innerHTML = audioList;
-    
+
     let audio_block_active = document.querySelectorAll(class_audioBlock_now)[1];
     //console.log(audio_block_active);
 
@@ -174,7 +174,7 @@ function addMusicplayer(audioInfo, author, num) {
                                 </div>
                             </div>
                         `;
-    
+
     let div = document.createElement('div');
     div.classList.add("musicPlayer");
     div.innerHTML = blockSiteHTML;
@@ -189,7 +189,7 @@ function addMiniMusicPlayer(audioInfo, author, num) {
     if (!audioInfo.add_name) {
         audioInfo.add_name = "";
     }
-    
+
     // let blockSiteHTML = get_mini_MP_html(audioInfo, nVolume, num, author);
     document.querySelector('#inner_mini_mp').innerHTML = get_mini_MP_html(audioInfo, nVolume, num, author);
 }

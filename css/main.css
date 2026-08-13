@@ -508,8 +508,19 @@ html {
   scroll-behavior: smooth;
 }
 
-div {
+div, input {
   box-sizing: border-box;
+}
+
+button {
+  border: none;
+  background: none;
+  display: block;
+}
+
+input {
+  outline: none;
+  border: none;
 }
 
 .flex-center {
@@ -699,9 +710,9 @@ body::-webkit-scrollbar {
 
 header {
   height: 70px;
-  left: 0;
-  right: 0;
-  top: 0;
+  left: 10px;
+  right: 10px;
+  top: 10px;
   position: fixed;
   z-index: 100;
   display: flex;
@@ -716,12 +727,13 @@ header .header__bgBlur {
   left: 0;
   bottom: -2px;
   z-index: 1;
+  border-radius: 20px;
   background-color: rgba(15, 15, 15, 0.8);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   opacity: 0;
   transition: 0.2s;
-  box-shadow: inset 0 -20px 20px -20px rgba(255, 255, 255, 0.4), inset 0 30px 30px -30px rgba(0, 0, 0, 0.1), 0 5px 10px -2px rgba(0, 0, 0, 0.2), inset -1px 0 0 0 rgba(57, 68, 78, 0.5), inset 1px 0 0 0 rgba(57, 68, 78, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 0 rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(40, 40, 40, 0.7);
+  box-shadow: inset 0 30px 30px -30px rgba(0, 0, 0, 0.1), 0 5px 10px -2px rgba(0, 0, 0, 0.2), inset -1px 0 0 0 rgba(57, 68, 78, 0.5), inset 1px 0 0 0 rgba(57, 68, 78, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(82, 98, 112, 0.5);
   backdrop-filter: brightness(2);
   backdrop-filter: blur(5px);
 }
@@ -751,8 +763,8 @@ header .navs__nav:last-child {
 }
 header .mini_musicPlayer {
   position: absolute;
-  top: 5px;
-  left: 5px;
+  top: 10px;
+  left: 10px;
   display: flex;
   align-items: center;
   z-index: 99;
@@ -895,10 +907,6 @@ header .mini_musicPlayer__interface__author:hover {
 }
 
 .container {
-  display: grid;
-  grid-gap: 30px;
-  grid-template-columns: repeat(6, minmax(0px, 1fr));
-  animation: 0.5s cubic-bezier(0, 0, 0.1, 1) 1 openSitesContent;
   padding-bottom: 100px;
 }
 .container__site {
@@ -978,19 +986,52 @@ header .mini_musicPlayer__interface__author:hover {
   transition: 0.1s;
 }
 .container__site {
-  box-shadow: inset 0 -20px 20px -20px rgba(255, 255, 255, 0.4), inset 0 30px 30px -30px rgba(0, 0, 0, 0.1), 0 5px 10px -2px rgba(0, 0, 0, 0.2), inset -1px 0 0 0 rgba(57, 68, 78, 0.5), inset 1px 0 0 0 rgba(57, 68, 78, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 0 rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(40, 40, 40, 0.7);
+  box-shadow: inset 0 30px 30px -30px rgba(0, 0, 0, 0.1), 0 5px 10px -2px rgba(0, 0, 0, 0.2), inset -1px 0 0 0 rgba(57, 68, 78, 0.5), inset 1px 0 0 0 rgba(57, 68, 78, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(82, 98, 112, 0.5);
   backdrop-filter: brightness(2);
   transition-timing-function: cubic-bezier(0.3, 0.8, 0.3, 2.3);
 }
 @media (hover: hover) {
   .container__site:hover {
-    box-shadow: inset 0px -30px 30px -30px rgba(255, 255, 255, 0.7), 0 5px 10px -2px rgba(0, 0, 0, 0.2), inset -1px 0 0 0 rgba(82, 98, 112, 0.5), inset 1px 0 0 0 rgba(82, 98, 112, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 -1px 0 0 rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.2), inset -1px 0 0 0 rgba(82, 98, 112, 0.5), inset 1px 0 0 0 rgba(82, 98, 112, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 -1px 0 0 rgba(255, 255, 255, 0.7);
     transform: scale(1.03);
   }
   .container__site:active {
     transform: scale(0.95);
+  }
+}
+.container {
+  animation: 0.5s cubic-bezier(0, 0, 0.1, 1) 1 openSitesContent;
+}
+
+.containerSites {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(6, minmax(0px, 1fr));
+}
+
+.searchForm {
+  margin-bottom: 30px;
+}
+.searchForm > input {
+  background: none;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  padding-left: 20px;
+  font-size: 14px;
+  cursor: text;
+  box-shadow: inset 0 30px 30px -30px rgba(0, 0, 0, 0.1), 0 5px 10px -2px rgba(0, 0, 0, 0.2), inset -1px 0 0 0 rgba(57, 68, 78, 0.5), inset 1px 0 0 0 rgba(57, 68, 78, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(82, 98, 112, 0.5);
+  backdrop-filter: brightness(2);
+  transition-timing-function: cubic-bezier(0.3, 0.8, 0.3, 2.3);
+}
+@media (hover: hover) {
+  .searchForm > input:hover {
+    box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.2), inset -1px 0 0 0 rgba(82, 98, 112, 0.5), inset 1px 0 0 0 rgba(82, 98, 112, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 -1px 0 0 rgba(255, 255, 255, 0.7);
+  }
+  .searchForm > input:focus {
+    box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.2), inset -1px 0 0 0 rgba(82, 98, 112, 0.5), inset 1px 0 0 0 rgba(82, 98, 112, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 -1px 0 0 rgba(255, 255, 255, 0.7);
   }
 }
 
@@ -1331,15 +1372,14 @@ header .mini_musicPlayer__interface__author:hover {
   transform: scale(0.8);
 }
 .music__grid__audioBlock {
-  box-shadow: inset 0 -20px 20px -20px rgba(255, 255, 255, 0.4), inset 0 30px 30px -30px rgba(0, 0, 0, 0.1), 0 5px 10px -2px rgba(0, 0, 0, 0.2), inset -1px 0 0 0 rgba(57, 68, 78, 0.5), inset 1px 0 0 0 rgba(57, 68, 78, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 0 rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(40, 40, 40, 0.7);
+  box-shadow: inset 0 30px 30px -30px rgba(0, 0, 0, 0.1), 0 5px 10px -2px rgba(0, 0, 0, 0.2), inset -1px 0 0 0 rgba(57, 68, 78, 0.5), inset 1px 0 0 0 rgba(57, 68, 78, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(82, 98, 112, 0.5);
   backdrop-filter: brightness(2);
   transition-timing-function: cubic-bezier(0.3, 0.8, 0.3, 2.3);
 }
 @media (hover: hover) {
   .music__grid__audioBlock:hover {
-    box-shadow: inset 0px -30px 30px -30px rgba(255, 255, 255, 0.7), 0 5px 10px -2px rgba(0, 0, 0, 0.2), inset -1px 0 0 0 rgba(82, 98, 112, 0.5), inset 1px 0 0 0 rgba(82, 98, 112, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 -1px 0 0 rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.2), inset -1px 0 0 0 rgba(82, 98, 112, 0.5), inset 1px 0 0 0 rgba(82, 98, 112, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 -1px 0 0 rgba(255, 255, 255, 0.7);
     transform: scale(1.03);
   }
   .music__grid__audioBlock:active {
